@@ -30,8 +30,7 @@ public class ShipMovement : MonoBehaviour
     void Update()
     {
         Vector3 tilt = Input.acceleration;
-        print(tilt);
-        
+
         if (moveRightCheck(tilt.x))
         {
             transform.Translate(new Vector3(movementSpeed, 0, 0) * Time.deltaTime);

@@ -212,8 +212,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1472316420}
-  - component: {fileID: 1472316421}
   - component: {fileID: 1472316422}
+  - component: {fileID: 1472316421}
+  - component: {fileID: 1472316423}
   m_Layer: 0
   m_Name: TestShip
   m_TagString: Untagged
@@ -249,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2
-  tiltLimit: 0.2
+  tiltLimit: 0.1
 --- !u!50 &1472316422
 Rigidbody2D:
   serializedVersion: 4
@@ -271,6 +272,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1472316423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472316419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706c510d0e3fae44892d33f4a1ea4fc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 4655783354631332770, guid: 3a007b328b44ca5459763067a8a937c8, type: 3}
+  setShotDelay: 0.1
 --- !u!1 &1594102861
 GameObject:
   m_ObjectHideFlags: 0
