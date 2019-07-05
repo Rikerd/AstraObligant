@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
     public int maxHP;
 
+    public int damage;
+
     protected int currentHP;
 
     public void TakeDamage(int dmg)

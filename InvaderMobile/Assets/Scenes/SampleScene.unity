@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 1472316423}
   m_Layer: 0
   m_Name: TestShip
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,9 +297,10 @@ GameObject:
   - component: {fileID: 1594102862}
   - component: {fileID: 1594102863}
   - component: {fileID: 1594102864}
+  - component: {fileID: 1594102865}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -429,6 +430,20 @@ PolygonCollider2D:
       - {x: -0.17500001, y: -0.23700002}
       - {x: -0.082, y: -0.273}
       - {x: -0.012, y: -0.298}
+--- !u!114 &1594102865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594102861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10d5857e3b4ad54d9952a5399b725c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 3
+  currentHP: 0
 --- !u!1001 &8409195214108103260
 PrefabInstance:
   m_ObjectHideFlags: 0
