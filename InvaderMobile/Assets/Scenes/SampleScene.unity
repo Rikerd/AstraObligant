@@ -152,10 +152,10 @@ RectTransform:
   m_Father: {fileID: 188575392}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 14.579987, y: -4.7981644}
+  m_SizeDelta: {x: 8.386665, y: 9.596329}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &37931961
 MonoBehaviour:
@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 188575395}
   - component: {fileID: 188575394}
   - component: {fileID: 188575393}
+  - component: {fileID: 188575396}
   m_Layer: 5
   m_Name: Health Bar
   m_TagString: Untagged
@@ -230,7 +231,7 @@ RectTransform:
   m_Father: {fileID: 1548289930}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.92}
+  m_AnchorMin: {x: 0.03, y: 0.92}
   m_AnchorMax: {x: 0.3, y: 0.97}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -271,7 +272,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188575391}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -405508275, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -282,7 +283,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 2
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -297,6 +298,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188575391}
   m_CullTransparentMesh: 0
+--- !u!114 &188575396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188575391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5b63d058804b94d8c924ab3015460e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,10 +491,10 @@ RectTransform:
   m_Father: {fileID: 188575392}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 24.966663, y: -4.7981644}
+  m_SizeDelta: {x: 8.386665, y: 9.596329}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1032778414
 MonoBehaviour:
@@ -602,7 +615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4655783354631332770, guid: 3a007b328b44ca5459763067a8a937c8, type: 3}
-  setShotDelay: 0.1
+  setShotDelay: 0.2
 --- !u!1 &1548289926
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,10 +879,10 @@ RectTransform:
   m_Father: {fileID: 188575392}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 4.1933327, y: -4.7981644}
+  m_SizeDelta: {x: 8.386665, y: 9.596329}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2026631565
 MonoBehaviour:

@@ -8,10 +8,14 @@ public class ShipHealth : MonoBehaviour
 
     public int currentHP;
 
+    private HpBar hpUIController;
+
     // Start is called before the first frame update
     void Start()
     {
         currentHP = maxHP;
+
+        hpUIController = GameObject.Find("Health Bar").GetComponent<HpBar>();
     }
 
     // Update is called once per frame
@@ -23,6 +27,7 @@ public class ShipHealth : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         currentHP -= dmg;
+        hpUIController.updateHealth(dmg);
 
         if (currentHP <= 0)
         {

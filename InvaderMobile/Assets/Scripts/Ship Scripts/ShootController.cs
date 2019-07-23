@@ -32,7 +32,7 @@ public class ShootController : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(bullet, transform.position, Quaternion.identity);
+        Instantiate(bullet, transform.position + new Vector3(0f, 0.3f), Quaternion.identity);
 
         shotDelay = setShotDelay;
     }
