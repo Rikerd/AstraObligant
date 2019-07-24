@@ -28,6 +28,14 @@ public class ShootController : MonoBehaviour
         {
             Shoot();
         }
+
+        #region Keyboard Controls
+        // Keyboard Controls for Debugging
+        if (Input.GetKey(KeyCode.Space) && shotDelay <= 0f)
+        {
+            Shoot();
+        }
+        #endregion Keyboard Controls
     }
 
     private void Shoot()
