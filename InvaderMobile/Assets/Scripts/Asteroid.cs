@@ -41,12 +41,12 @@ public class Asteroid : Enemy
     {
         rotateAsteroid();
 
-        rb2d.MovePosition(transform.position - (Vector3.up * movementSpeed) * Time.deltaTime);
+        rb2d.MovePosition(transform.position - (Vector3.up * movementSpeed) * Time.fixedDeltaTime);
     }
 
     private void rotateAsteroid()
     {
-        rb2d.MoveRotation(rb2d.rotation + rotationSpeed * Time.deltaTime);
+        rb2d.MoveRotation(rb2d.rotation + rotationSpeed * Time.fixedDeltaTime);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
