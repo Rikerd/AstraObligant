@@ -5,7 +5,9 @@ using UnityEngine;
 public class Shooter : Enemy
 {
     public float patrolSpeed = 3f;
-
+    
+    [Header("Shooting Variables")]
+    public GameObject bullet;
     public float setShootTimer = 2f;
 
     private float shootTimer;
@@ -34,9 +36,21 @@ public class Shooter : Enemy
         movement = new Vector2(patrolSpeed, 0);
     }
 
+    public void Update()
+    {
+        if (shootTimer > 0f)
+        {
+            shootTimer -= Time.deltaTime;
+        } else
+        {
+            Shoot();
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
+        // Patrol Right Movement
         if (moveRightCheck())
         {
             rb2d.MovePosition(rb2d.position + movement * Time.fixedDeltaTime);
@@ -46,6 +60,7 @@ public class Shooter : Enemy
             movingRight = false;
         }
 
+        // Patrol Left Movement
         if (moveLeftCheck())
         {
             rb2d.MovePosition(rb2d.position - movement * Time.fixedDeltaTime);
@@ -64,5 +79,13 @@ public class Shooter : Enemy
     private bool moveLeftCheck()
     {
         return !movingRight && (rb2d.position - movement * Time.fixedDeltaTime).x >= min.x + 0.28f;
+    }
+
+    private void Shoot()
+    {
+        Instantiate(bullet, transform.position + new Vector3(0.15f, 0f, 0f), Quaternion.identity);
+        Instantiate(bullet, transform.position - new Vector3(0.15f, 0f, 0f), Quaternion.identity);
+
+        shootTimer = setShootTimer;
     }
 }

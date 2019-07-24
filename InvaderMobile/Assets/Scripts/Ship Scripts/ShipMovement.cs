@@ -33,11 +33,11 @@ public class ShipMovement : MonoBehaviour
 
         #region Keyboard Controls
         // Keyboard Controls for Debugging
-        if (Input.GetKey(KeyCode.S) && (rb2d.position + movement * Time.fixedDeltaTime).x <= max.x - 0.28f)
+        if (Input.GetKey(KeyCode.D) && (rb2d.position + movement * Time.fixedDeltaTime).x <= max.x - 0.28f)
         {
             rb2d.MovePosition(rb2d.position + movement * Time.fixedDeltaTime);
 
-        } else if (Input.GetKey(KeyCode.D) && (rb2d.position - movement * Time.fixedDeltaTime).x >= min.x + 0.28f)
+        } else if (Input.GetKey(KeyCode.A) && (rb2d.position - movement * Time.fixedDeltaTime).x >= min.x + 0.28f)
         {
             rb2d.MovePosition(rb2d.position - movement * Time.fixedDeltaTime);
         }
