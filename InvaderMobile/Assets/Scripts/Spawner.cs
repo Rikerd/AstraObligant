@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteroidSpawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
-    public GameObject asteroid;
+    public GameObject spawnObject;
 
     public float setMinSpawnTimer = 3f;
     public float setMaxSpawnTimer = 5f;
 
+    public bool spawnOnPlayer = false;
 
+    private float spawnRange;
     private Transform playerTransform;
     private float spawnTimer;
 
@@ -19,6 +21,11 @@ public class AsteroidSpawner : MonoBehaviour
         spawnTimer = Random.Range(setMaxSpawnTimer, setMaxSpawnTimer);
 
         playerTransform = GameObject.Find("TestShip").transform;
+
+        if (!spawnOnPlayer)
+        {
+            spawnRange = Random.Range(transform.position.x - 2.5f, transform.position.x + 2.5f);
+        }
     }
 
     // Update is called once per frame
@@ -29,7 +36,11 @@ public class AsteroidSpawner : MonoBehaviour
 
         if (spawnTimer <= 0f)
         {
-            Instantiate(asteroid, new Vector2(playerTransform.position.x, transform.position.y) , Quaternion.identity);
+            if (spawnOnPlayer)
+                Instantiate(spawnObject, new Vector2(playerTransform.position.x, transform.position.y), Quaternion.identity);
+            else
+                Instantiate(spawnObject, new Vector2(spawnRange, transform.position.y), Quaternion.identity);
+
             spawnTimer = Random.Range(setMaxSpawnTimer, setMaxSpawnTimer);
         }
     }

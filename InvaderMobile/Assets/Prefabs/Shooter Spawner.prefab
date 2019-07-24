@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9015444252635967119
+--- !u!1 &2661543629594862607
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2895556076711167380}
-  - component: {fileID: 309488488833613940}
+  - component: {fileID: 8204975734223490836}
+  - component: {fileID: 6753568995812608756}
   m_Layer: 0
-  m_Name: Asteroid Spawner
+  m_Name: Shooter Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2895556076711167380
+--- !u!4 &8204975734223490836
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9015444252635967119}
+  m_GameObject: {fileID: 2661543629594862607}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,20 +31,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &309488488833613940
+--- !u!114 &6753568995812608756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9015444252635967119}
+  m_GameObject: {fileID: 2661543629594862607}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e45ad16e12064da48a94aa3e9aff6c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnObject: {fileID: 6519995660322377190, guid: 44c1c5a6ba20b6243bbeaff3accd96d5,
+  spawnObject: {fileID: 95092319287771804, guid: 8113168c2d70c4542854dab144c93154,
     type: 3}
-  setMinSpawnTimer: 3
-  setMaxSpawnTimer: 5
-  spawnOnPlayer: 1
+  setMinSpawnTimer: 4
+  setMaxSpawnTimer: 6
+  spawnOnPlayer: 0

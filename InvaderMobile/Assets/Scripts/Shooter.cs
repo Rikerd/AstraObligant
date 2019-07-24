@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Shooter : Enemy
 {
-    public float patrolSpeed = 3f;
     
+    public float patrolSpeed = 3f;
+    public float bulletSpeed = 1f;
+
+    [Header("Spawn Movement Variables")]
+    public float initialMovementTimer = 1f;
+    public float fowardMovement = 2f;
+
     [Header("Shooting Variables")]
     public GameObject bullet;
     public float setShootTimer = 2f;
@@ -21,6 +27,8 @@ public class Shooter : Enemy
 
     private bool movingRight = true;
 
+    private bool initialMovement;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,40 +42,63 @@ public class Shooter : Enemy
         rb2d = GetComponent<Rigidbody2D>();
 
         movement = new Vector2(patrolSpeed, 0);
+
+        initialMovement = true;
     }
 
     public void Update()
     {
-        if (shootTimer > 0f)
+        if (!initialMovement)
         {
-            shootTimer -= Time.deltaTime;
-        } else
-        {
-            Shoot();
+            if (shootTimer > 0f)
+            {
+                shootTimer -= Time.deltaTime;
+            }
+            else
+            {
+                Shoot();
+            }
         }
+        else
+        {
+            initialMovementTimer -= Time.deltaTime;
+
+            if (initialMovementTimer <= 0f)
+            {
+                initialMovement = false;
+            }
+        }
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Patrol Right Movement
-        if (moveRightCheck())
+        if (initialMovement)
         {
-            rb2d.MovePosition(rb2d.position + movement * Time.fixedDeltaTime);
+            rb2d.MovePosition(rb2d.position - new Vector2(0f, fowardMovement) * Time.fixedDeltaTime);
         }
         else
         {
-            movingRight = false;
-        }
+            // Patrol Right Movement
+            if (moveRightCheck())
+            {
+                rb2d.MovePosition(rb2d.position + movement * Time.fixedDeltaTime);
+            }
+            else
+            {
+                movingRight = false;
+            }
 
-        // Patrol Left Movement
-        if (moveLeftCheck())
-        {
-            rb2d.MovePosition(rb2d.position - movement * Time.fixedDeltaTime);
-        }
-        else
-        {
-            movingRight = true;
+            // Patrol Left Movement
+            if (moveLeftCheck())
+            {
+                rb2d.MovePosition(rb2d.position - movement * Time.fixedDeltaTime);
+            }
+            else
+            {
+                movingRight = true;
+            }
         }
     }
 
@@ -83,8 +114,13 @@ public class Shooter : Enemy
 
     private void Shoot()
     {
-        Instantiate(bullet, transform.position + new Vector3(0.15f, 0f, 0f), Quaternion.identity);
-        Instantiate(bullet, transform.position - new Vector3(0.15f, 0f, 0f), Quaternion.identity);
+        GameObject rightBullet = Instantiate(bullet, transform.position + new Vector3(0.15f, -0.2f, 0f), Quaternion.identity);
+        rightBullet.GetComponent<EnemyBullet>().setDamage(damage);
+        rightBullet.GetComponent<EnemyBullet>().setMovementSpeed(bulletSpeed);
+
+        GameObject leftBullet = Instantiate(bullet, transform.position - new Vector3(0.15f, 0.2f, 0f), Quaternion.identity);
+        leftBullet.GetComponent<EnemyBullet>().setDamage(damage);
+        leftBullet.GetComponent<EnemyBullet>().setMovementSpeed(bulletSpeed);
 
         shootTimer = setShootTimer;
     }
