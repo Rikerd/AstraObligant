@@ -1005,7 +1005,7 @@ PrefabInstance:
     - target: {fileID: 6090735471497782942, guid: 1dcf71bb2f517084fa71799b731c07df,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.307
       objectReference: {fileID: 0}
     - target: {fileID: 6090735471497782942, guid: 1dcf71bb2f517084fa71799b731c07df,
         type: 3}
@@ -1056,6 +1056,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090735471497782945, guid: 1dcf71bb2f517084fa71799b731c07df,
+        type: 3}
+      propertyPath: setVerticalMoveTimer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dcf71bb2f517084fa71799b731c07df, type: 3}
