@@ -8,21 +8,46 @@ public class Bullet : MonoBehaviour {
 
     private Rigidbody2D rb2d;
     private bool hit;
+    private bool reflected = false;
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
 
         hit = false;
+        reflected = false;
     }
 
     private void FixedUpdate()
     {
+        if (reflected)
+        {
+            Vector2 move = -transform.up * movementSpeed * Time.deltaTime;
+            rb2d.MovePosition(rb2d.position + move);
+            return;
+        }
+
         if (!hit)
         {
             Vector2 move = transform.up * movementSpeed * Time.deltaTime;
             rb2d.MovePosition(rb2d.position + move);
         }
+    }
+
+    public bool isReflected()
+    {
+        return reflected;
+    }
+
+    public void Reflect(float refSpeed)
+    {
+        reflected = true;
+
+        movementSpeed = refSpeed;
+
+        GetComponent<SpriteRenderer>().color = Color.red;
+
+        gameObject.tag = "Untagged";
     }
 
     public void OnBecameInvisible()
@@ -38,6 +63,12 @@ public class Bullet : MonoBehaviour {
         if (collision.tag == "Enemy")
         {
             collision.GetComponent<Enemy>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
+
+        if (reflected && collision.tag == "Player")
+        {
+            collision.GetComponent<ShipHealth>().TakeDamage(damage);
             Destroy(gameObject);
         }
 
