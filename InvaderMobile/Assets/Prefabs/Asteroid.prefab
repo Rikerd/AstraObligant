@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 2
   damage: 1
+  scoreValue: 10
   minSize: 1
   maxSize: 1.4
   minMovementSpeed: 0.1

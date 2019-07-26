@@ -159,6 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 2
   damage: 1
+  scoreValue: 20
   patrolSpeed: 0.4
   bulletSpeed: 1
   initialMovementTimer: 1

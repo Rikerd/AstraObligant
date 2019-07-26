@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
 
     public int damage;
 
+    public int scoreValue;
+
     protected int currentHP;
 
     public void TakeDamage(int dmg)
@@ -17,7 +19,14 @@ public class Enemy : MonoBehaviour
 
         if (currentHP <= 0)
         {
+            addScore();
+
             Destroy(gameObject);
         }
+    }
+
+    public void addScore()
+    {
+        HighScoreTracker.highScoreTracker.addScore(scoreValue);
     }
 }

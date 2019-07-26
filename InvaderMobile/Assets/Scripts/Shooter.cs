@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shooter : Enemy
 {
-    
+    [Header("Speed Values")]
     public float patrolSpeed = 3f;
     public float bulletSpeed = 1f;
 

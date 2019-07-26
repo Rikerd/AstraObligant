@@ -10,6 +10,8 @@ public class ShipHealth : MonoBehaviour
 
     private HpBar hpUIController;
 
+    private bool shielded;
+
     // Start is called before the first frame update
     void Start()
     {
