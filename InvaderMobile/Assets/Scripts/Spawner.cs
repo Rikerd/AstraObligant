@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public enum SpawnerPosition
+    {
+        Top,
+        Left,
+        Right
+    }
+
     public GameObject spawnObject;
 
     public float setMinSpawnTimer = 3f;
@@ -41,7 +48,7 @@ public class Spawner : MonoBehaviour
             else
                 Instantiate(spawnObject, new Vector2(spawnRange, transform.position.y), Quaternion.identity);
 
-            spawnTimer = Random.Range(setMaxSpawnTimer, setMaxSpawnTimer);
+            spawnTimer = Random.Range(setMinSpawnTimer, setMaxSpawnTimer);
         }
     }
 }

@@ -58,10 +58,10 @@ public class Blocker : MonoBehaviour
         rb2d.MovePosition(rb2d.position + (horizontalMovement * Time.fixedDeltaTime) + (verticalMovement * Time.fixedDeltaTime));
     }
 
-    //public void OnBecameInvisible()
-    //{
-    //    Destroy(gameObject);
-    //}
+    public void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -69,5 +69,10 @@ public class Blocker : MonoBehaviour
         {
             collision.GetComponent<Bullet>().Reflect(reflectSpeed);
         }
+    }
+
+    public void setMovementDirection(bool rightDirection)
+    {
+        movingRight = rightDirection;
     }
 }
