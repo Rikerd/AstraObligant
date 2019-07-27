@@ -27,11 +27,17 @@ public class ShootController : MonoBehaviour
         {
             shotDelay -= Time.deltaTime;
         }
-
+        
+        /*
         if (Input.touchCount > 0 && shotDelay <= 0f)
         {
             Shoot();
         }
+        else if (Input.touchCount <= 0)
+        {
+            shield.StartShield();
+        }
+        */
 
         #region Keyboard Controls
         // Keyboard Controls for Debugging
@@ -39,11 +45,9 @@ public class ShootController : MonoBehaviour
         {
             Shoot();
         }
-
-        if (Input.GetKey(KeyCode.O))
+        else
         {
             shield.StartShield();
-            Debug.Log("We in");
         }
         #endregion Keyboard Controls
     }

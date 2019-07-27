@@ -41,9 +41,16 @@ public class ShieldController : MonoBehaviour
 
     public void StartShield()
     {
-        shielding = true;
+        if (hpController.getCurrentShieldPercent() > 20f)
+        {
+            if (!shielding)
+            {
+                shieldDelayTimer = setShieldDelay;
+            }
 
-        shieldDelayTimer = setShieldDelay;
+            shielding = true;
+        }
+        
     }
 
     public void StopShield()

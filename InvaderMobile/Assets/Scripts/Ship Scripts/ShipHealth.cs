@@ -13,9 +13,13 @@ public class ShipHealth : MonoBehaviour
 
     public int currentHP;
     public float currentShield;
+
+    public GameObject shieldObject;
     
     private HpBar hpUIController;
     private Slider shieldSlider;
+
+    private ShieldController shieldController;
 
     private bool shielded;
 
@@ -29,6 +33,8 @@ public class ShipHealth : MonoBehaviour
 
         hpUIController = GameObject.Find("Health Bar").GetComponent<HpBar>();
         shieldSlider = GameObject.Find("Shield Bar").GetComponent<Slider>();
+
+        shieldController = GetComponentInParent<ShieldController>();
 
         shieldSlider.maxValue = maxShield;
         shieldSlider.value = currentShield;
@@ -75,6 +81,17 @@ public class ShipHealth : MonoBehaviour
         else
         {
             currentShield -= dmg * 10;
+
+            if (currentShield < 0f)
+            {
+                currentShield = 0;
+            }
+
+            if (currentShield == 0f)
+            {
+                shieldController.StopShield();
+            }
+
             shieldSlider.value = currentShield;
         }
 
@@ -87,11 +104,15 @@ public class ShipHealth : MonoBehaviour
     public void ActivateShield()
     {
         shielded = true;
+
+        shieldObject.SetActive(true);
     }
 
     public void DeactivateShield()
     {
         shielded = false;
+
+        shieldObject.SetActive(false);
     }
 
     public void ActivateRecharge()
@@ -102,5 +123,10 @@ public class ShipHealth : MonoBehaviour
     public void DeactivateRecharge()
     {
         recharging = false;
+    }
+
+    public float getCurrentShieldPercent()
+    {
+        return (currentShield / maxShield) * 100;
     }
 }
