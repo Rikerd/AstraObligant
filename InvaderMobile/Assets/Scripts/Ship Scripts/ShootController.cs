@@ -8,17 +8,15 @@ public class ShootController : MonoBehaviour
 
     public float setShotDelay = 0.3f;
 
-    [Header("Shield Properties")]
-    public float setShieldDelay = 0.2f;
-
+    private ShieldController shield;
 
     private float shotDelay;
-
-    private float shieldDelay;
     
     // Start is called before the first frame update
     void Start()
     {
+        shield = GetComponent<ShieldController>();
+
         shotDelay = 0f;
     }
 
@@ -34,10 +32,6 @@ public class ShootController : MonoBehaviour
         {
             Shoot();
         }
-        else if (Input.touchCount <= 0)
-        {
-            Shield();
-        }
 
         #region Keyboard Controls
         // Keyboard Controls for Debugging
@@ -45,27 +39,21 @@ public class ShootController : MonoBehaviour
         {
             Shoot();
         }
+
+        if (Input.GetKey(KeyCode.O))
+        {
+            shield.StartShield();
+            Debug.Log("We in");
+        }
         #endregion Keyboard Controls
     }
 
     private void Shoot()
     {
-        shieldDelay = setShieldDelay;
-
         Instantiate(bullet, transform.position + new Vector3(0f, 0.3f), Quaternion.identity);
 
         shotDelay = setShotDelay;
-    }
 
-    private void Shield()
-    {
-        if (shieldDelay >= 0f)
-        {
-            shieldDelay -= Time.deltaTime;
-        }
-        else
-        {
-            return;
-        }
+        shield.StopShield();
     }
 }

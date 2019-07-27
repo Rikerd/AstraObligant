@@ -18,6 +18,8 @@ public class ShieldController : MonoBehaviour
     {
         shielding = false;
 
+        hpController = GetComponentInChildren<ShipHealth>();
+
         shieldDelayTimer = setShieldDelay;
     }
 
@@ -33,22 +35,22 @@ public class ShieldController : MonoBehaviour
             }
 
             hpController.ActivateShield();
-        }
-        else
-        {
-            shieldDelayTimer = setShieldDelay;
-
-            hpController.DeactivateShield();
+            hpController.DeactivateRecharge();
         }
     }
 
     public void StartShield()
     {
         shielding = true;
+
+        shieldDelayTimer = setShieldDelay;
     }
 
     public void StopShield()
     {
         shielding = false;
+
+        hpController.DeactivateShield();
+        hpController.ActivateRecharge();
     }
 }
