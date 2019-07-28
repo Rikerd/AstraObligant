@@ -53,7 +53,7 @@ public class Asteroid : Enemy
     {
         if (collision.tag == "Player")
         {
-            collision.GetComponent<ShipHealth>().TakeDamage(damage);
+            collision.GetComponent<PlayerDamageable>().TakeDamage(damage);
 
             Destroy(gameObject);
         }

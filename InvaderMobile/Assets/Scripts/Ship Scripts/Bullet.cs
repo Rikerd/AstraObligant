@@ -68,7 +68,7 @@ public class Bullet : MonoBehaviour {
 
         if (reflected && collision.tag == "Player")
         {
-            collision.GetComponent<ShipHealth>().TakeDamage(damage);
+            collision.GetComponent<PlayerDamageable>().TakeDamage(damage);
             Destroy(gameObject);
         }
 

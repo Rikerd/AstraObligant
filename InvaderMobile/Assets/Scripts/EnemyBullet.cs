@@ -39,7 +39,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            collision.GetComponent<ShipHealth>().TakeDamage(damage);
+            collision.GetComponent<PlayerDamageable>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }

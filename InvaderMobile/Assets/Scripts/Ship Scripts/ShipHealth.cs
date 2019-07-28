@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShipHealth : MonoBehaviour
+public class ShipHealth : PlayerDamageable
 {
     public int maxHP = 3;
 
@@ -71,7 +71,7 @@ public class ShipHealth : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int dmg)
+    public override void TakeDamage(int dmg)
     {
         if (!shielded)
         {
