@@ -11,7 +11,7 @@ public class DropSystem : MonoBehaviour
     public int[] dropRates;
     public List<GameObject> pickUps;
 
-    private bool isDrop = true;
+    private bool isDrop = false;
 
     private int total = 0;
 
@@ -24,7 +24,7 @@ public class DropSystem : MonoBehaviour
     {
         if (Random.Range(0f, 100f) <= dropPercentage)
         {
-            isDrop = false;
+            isDrop = true;
 
             return;
         }

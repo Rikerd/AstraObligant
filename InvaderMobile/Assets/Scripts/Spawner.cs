@@ -12,13 +12,19 @@ public class Spawner : MonoBehaviour
     }
 
     public GameObject spawnObject;
+    
+    public bool spawnOnPlayer = false;
 
+    [Header("Spawn Timer Variation")]
     public float setMinSpawnTimer = 3f;
     public float setMaxSpawnTimer = 5f;
 
-    public bool spawnOnPlayer = false;
+    [Header("Spawn Range")]
+    public Transform minPosition;
+    public Transform maxPosition;
 
-    private float spawnRange;
+    private float spawnRangeX;
+    private float spawnRangeY;
     private Transform playerTransform;
     private float spawnTimer;
 
@@ -31,8 +37,11 @@ public class Spawner : MonoBehaviour
 
         if (!spawnOnPlayer)
         {
-            spawnRange = Random.Range(transform.position.x - 2.5f, transform.position.x + 2.5f);
+            spawnRangeX = Random.Range(minPosition.position.x, maxPosition.position.x);
         }
+
+        spawnRangeY = Random.Range(minPosition.position.y, maxPosition.position.y);
+
     }
 
     // Update is called once per frame
@@ -44,9 +53,9 @@ public class Spawner : MonoBehaviour
         if (spawnTimer <= 0f)
         {
             if (spawnOnPlayer)
-                Instantiate(spawnObject, new Vector2(playerTransform.position.x, transform.position.y), Quaternion.identity);
+                Instantiate(spawnObject, new Vector2(playerTransform.position.x, spawnRangeY), Quaternion.identity);
             else
-                Instantiate(spawnObject, new Vector2(spawnRange, transform.position.y), Quaternion.identity);
+                Instantiate(spawnObject, new Vector2(spawnRangeX, spawnRangeY), Quaternion.identity);
 
             spawnTimer = Random.Range(setMinSpawnTimer, setMaxSpawnTimer);
         }

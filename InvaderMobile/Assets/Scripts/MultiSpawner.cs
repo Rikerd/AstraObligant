@@ -8,11 +8,12 @@ public class MultiSpawner : MonoBehaviour
 
     public int spawnAmount = 3;
     public float spawnTimeSeparation = 0.5f;
+    
+    public Spawner.SpawnerPosition position;
 
+    [Header("Spawn Timer Variation")]
     public float setMinSpawnTimer = 6f;
     public float setMaxSpawnTimer = 10f;
-
-    public Spawner.SpawnerPosition position;
 
     [Header("Spawn Range")]
     public Transform minPosition;

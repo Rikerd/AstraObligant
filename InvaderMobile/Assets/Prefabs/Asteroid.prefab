@@ -154,8 +154,8 @@ MonoBehaviour:
   scoreValue: 10
   minSize: 1
   maxSize: 1.4
-  minMovementSpeed: 0.1
-  maxMovementSpeed: 0.2
+  minMovementSpeed: 0.2
+  maxMovementSpeed: 0.4
   minRotationSpeed: 25
   maxRotationSpeed: 45
 --- !u!114 &6548948411310998383
