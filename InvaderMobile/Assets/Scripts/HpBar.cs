@@ -17,7 +17,7 @@ public class HpBar : MonoBehaviour {
 		
 	}
 
-    public void updateHealth(int dmgTaken)
+    public void damageHealth(int dmgTaken)
     {
         for (int i = 0; i < dmgTaken; i++)
         {
@@ -28,6 +28,17 @@ public class HpBar : MonoBehaviour {
 
             hearts[heartIndexToDisable].gameObject.SetActive(false);
             heartIndexToDisable--;
+        }
+    }
+
+    public void healHealth(int hpHeal)
+    {
+        for (int i = 0; i < hpHeal; i++)
+        {
+            // ADD CONDITION FOR MAX HP IF NEEDED
+
+            heartIndexToDisable++; // HEART INDEX TO ACTIVATE
+            hearts[heartIndexToDisable].gameObject.SetActive(true);
         }
     }
 }

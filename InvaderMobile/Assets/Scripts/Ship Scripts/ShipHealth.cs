@@ -76,7 +76,7 @@ public class ShipHealth : PlayerDamageable
         if (!shielded)
         {
             currentHP -= dmg;
-            hpUIController.updateHealth(dmg);
+            hpUIController.damageHealth(dmg);
         }
         else
         {
@@ -128,5 +128,27 @@ public class ShipHealth : PlayerDamageable
     public float getCurrentShieldPercent()
     {
         return (currentShield / maxShield) * 100;
+    }
+
+    public int getCurrentHp()
+    {
+        return currentHP;
+    }
+
+    public int getMaxHp()
+    {
+        return maxHP;
+    }
+
+    public void Heal(int amt)
+    {
+        currentHP += amt;
+
+        if (currentHP < maxHP)
+        {
+            currentHP = maxHP;
+        }
+
+        hpUIController.healHealth(amt);
     }
 }

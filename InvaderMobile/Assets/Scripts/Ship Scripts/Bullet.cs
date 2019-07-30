@@ -60,12 +60,23 @@ public class Bullet : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (!reflected)
         {
-            collision.GetComponent<Enemy>().TakeDamage(damage);
-            Destroy(gameObject);
-        }
+            if (collision.tag == "Enemy")
+            {
+                collision.GetComponent<Enemy>().TakeDamage(damage);
+                Destroy(gameObject);
+            }
 
+            if (collision.tag == "Pick Up")
+            {
+                if (collision.GetComponent<PickUpItems>().UsePickUp())
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
+        
         if (reflected && collision.tag == "Player")
         {
             collision.GetComponent<PlayerDamageable>().TakeDamage(damage);
