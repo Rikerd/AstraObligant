@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
         {
             addScore();
 
+            GetComponent<DropSystem>().Drop();
             Destroy(gameObject);
         }
     }

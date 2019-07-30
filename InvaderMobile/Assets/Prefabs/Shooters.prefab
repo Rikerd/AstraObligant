@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 95092319287771801}
   - component: {fileID: 95092319287771800}
   - component: {fileID: 95092319287771803}
+  - component: {fileID: 6703962057128554784}
   m_Layer: 0
   m_Name: Shooters
   m_TagString: Enemy
@@ -166,3 +167,19 @@ MonoBehaviour:
   fowardMovement: 4
   bullet: {fileID: 731126428111183442, guid: 0841fa4c5719fde4da569197cf0cf129, type: 3}
   setShootTimer: 2
+--- !u!114 &6703962057128554784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95092319287771804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 852e63e5b6f1d1649ba3d93df2854a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropPercentage: 10
+  dropRates: 64000000
+  pickUps:
+  - {fileID: 4013291194859457542, guid: 84f7eea2b8f387a40a3532b5a067e811, type: 3}

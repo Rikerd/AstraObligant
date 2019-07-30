@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4356967062070121763}
   - component: {fileID: 8598762588396038069}
   - component: {fileID: 1243846504561255816}
-  - component: {fileID: 6519995660322377191}
   - component: {fileID: 4907709902520206821}
+  - component: {fileID: 6519995660322377191}
+  - component: {fileID: 6548948411310998383}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Enemy
@@ -103,27 +104,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6519995660322377191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6519995660322377190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d0bb59ddb514f54a87d1baeed0e3cb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 2
-  damage: 1
-  scoreValue: 10
-  minSize: 1
-  maxSize: 1.4
-  minMovementSpeed: 0.1
-  maxMovementSpeed: 0.2
-  minRotationSpeed: 25
-  maxRotationSpeed: 45
 --- !u!60 &4907709902520206821
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -157,3 +137,40 @@ PolygonCollider2D:
       - {x: 0.107611276, y: -0.25}
       - {x: 0.24875796, y: -0.11009541}
       - {x: 0.25, y: 0.10885334}
+--- !u!114 &6519995660322377191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6519995660322377190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0bb59ddb514f54a87d1baeed0e3cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 2
+  damage: 1
+  scoreValue: 10
+  minSize: 1
+  maxSize: 1.4
+  minMovementSpeed: 0.1
+  maxMovementSpeed: 0.2
+  minRotationSpeed: 25
+  maxRotationSpeed: 45
+--- !u!114 &6548948411310998383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6519995660322377190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 852e63e5b6f1d1649ba3d93df2854a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropPercentage: 10
+  dropRates: 64000000
+  pickUps:
+  - {fileID: 4013291194859457542, guid: 84f7eea2b8f387a40a3532b5a067e811, type: 3}
