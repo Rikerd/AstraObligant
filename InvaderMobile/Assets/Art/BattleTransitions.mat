@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BattleTransitions
-  m_Shader: {fileID: 4800000, guid: d31f92c50cd89bd45bd059e1a59ab470, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0f3188bd269d13f4f9340af5bc2bef5e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TransitionTex:
-        m_Texture: {fileID: 2800000, guid: 38161daee2261724b95db8acb097dcff, type: 3}
+        m_Texture: {fileID: 2800000, guid: 39c132ab8c68b384e8d4399fdb5a1000, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TransitionTexture:
@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Cutoff: 0
+    - _Cutoff: 1
     - _Distort: 0
     - _Fade: 1
     m_Colors:

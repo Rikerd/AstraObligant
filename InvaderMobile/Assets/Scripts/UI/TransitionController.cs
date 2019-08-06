@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Transition : MonoBehaviour
+public class TransitionController : MonoBehaviour
 {
     public Material transMat;
 
@@ -87,6 +87,11 @@ public class Transition : MonoBehaviour
         currentTexture = texture;
         transMat.SetFloat("_Cutoff", 1f);
         unfade = true;
+    }
+
+    public float getFadeTime()
+    {
+        return fadeTime;
     }
 
 }

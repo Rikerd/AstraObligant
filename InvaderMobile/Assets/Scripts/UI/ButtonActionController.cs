@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ButtonActionController : MonoBehaviour {
-    public Transition transition;
+    public TransitionController transition;
 
     public Texture2D swirlTexture;
     public Texture2D sideTexture;
