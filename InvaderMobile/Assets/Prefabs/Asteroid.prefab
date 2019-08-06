@@ -152,6 +152,8 @@ MonoBehaviour:
   maxHP: 2
   damage: 1
   scoreValue: 10
+  scorePrompt: {fileID: 3068286878566692857, guid: 30382c747f9aa2d4295543afd8bbcd2a,
+    type: 3}
   minSize: 1
   maxSize: 1.4
   minMovementSpeed: 0.2

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Enemy : MonoBehaviour
     public int damage;
 
     public int scoreValue;
+
+    public GameObject scorePrompt;
 
     protected int currentHP;
 
@@ -22,6 +25,7 @@ public class Enemy : MonoBehaviour
             addScore();
 
             GetComponent<DropSystem>().Drop();
+            createScorePrompt();
             Destroy(gameObject);
         }
     }
@@ -29,5 +33,11 @@ public class Enemy : MonoBehaviour
     public void addScore()
     {
         HighScoreTracker.highScoreTracker.addScore(scoreValue);
+    }
+
+    public void createScorePrompt()
+    {
+        GameObject prompt = Instantiate(scorePrompt, transform.position, Quaternion.identity);
+        prompt.GetComponentInChildren<Text>().text = scoreValue.ToString();
     }
 }

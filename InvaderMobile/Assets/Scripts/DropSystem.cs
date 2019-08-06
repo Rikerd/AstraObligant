@@ -25,7 +25,9 @@ public class DropSystem : MonoBehaviour
         if (Random.Range(0f, 100f) <= dropPercentage)
         {
             isDrop = true;
-
+        }
+        else
+        {
             return;
         }
 
