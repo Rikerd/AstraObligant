@@ -27,6 +27,8 @@ public class Enemy : MonoBehaviour
             GetComponent<DropSystem>().Drop();
             createScorePrompt();
             Destroy(gameObject);
+
+            return;
         }
     }
 
