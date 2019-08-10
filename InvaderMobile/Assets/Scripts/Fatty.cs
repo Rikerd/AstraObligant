@@ -11,6 +11,11 @@ public class Fatty : Enemy
     [Header("Movement Speed")]
     public float minMovementSpeed = 0.2f;
     public float maxMovementSpeed = 0.4f;
+    public float movementSpeedIncrease = 0.1f;
+
+    [Header("Edges")]
+    public Transform leftEdge;
+    public Transform rightEdge;
 
     private Vector2 max;
     private Vector2 min;
@@ -19,6 +24,8 @@ public class Fatty : Enemy
     private float fattySize;
     private float movementSpeed;
 
+    private SpriteRenderer sprite;
+
     private Rigidbody2D rb2d;
 
     // Start is called before the first frame update
@@ -26,6 +33,9 @@ public class Fatty : Enemy
     {
         fattySize = Random.Range(minSize, maxSize);
         movementSpeed = Random.Range(minMovementSpeed, maxMovementSpeed);
+        fattySize = Random.Range(minSize, maxSize);
+
+        transform.localScale = new Vector3(fattySize, fattySize, 1);
 
         max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
         min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
@@ -45,6 +55,27 @@ public class Fatty : Enemy
         moveFatty();
     }
 
+    public override void TakeDamage(int dmg)
+    {
+        base.TakeDamage(dmg);
+        
+        float newSize = ((float) currentHP / maxHP) * fattySize;
+
+        if (newSize < 1f)
+        {
+            newSize = 1;
+        }        
+
+        transform.localScale = new Vector3(newSize, newSize, 1);
+
+        print(currentHP);   
+
+        if (currentHP >= 15)
+        {
+            movementSpeed += movementSpeedIncrease;
+        }
+    }
+
     private void moveFatty()
     {
         if (moveRightCheck())
@@ -53,7 +84,7 @@ public class Fatty : Enemy
         }
         else
         {
-            transform.eulerAngles = new Vector3(0, 0, 300);
+            transform.eulerAngles = new Vector3(0, 0, 285);
             movingRight = false;
         }
         
@@ -63,19 +94,28 @@ public class Fatty : Enemy
         }
         else
         {
-            transform.eulerAngles = new Vector3(0, 0, 60);
+            transform.eulerAngles = new Vector3(0, 0, 75);
             movingRight = true;
         }
     }
 
     private bool moveRightCheck()
     {
-        print(max.x - (0.5f));
-        return movingRight && (rb2d.position - ((Vector2)transform.up * movementSpeed) * Time.fixedDeltaTime).x <= max.x - 0.5f;
+        return movingRight && (rightEdge.position - (transform.up * movementSpeed) * Time.fixedDeltaTime).x <= max.x;
     }
 
     private bool moveLeftCheck()
     {
-        return !movingRight && (rb2d.position - ((Vector2)transform.up * movementSpeed) * Time.fixedDeltaTime).x >= min.x + 0.5f;
+        return !movingRight && (leftEdge.position - (transform.up * movementSpeed) * Time.fixedDeltaTime).x >= min.x;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            collision.GetComponent<PlayerDamageable>().TakeDamage(damage);
+
+            Destroy(gameObject);
+        }
     }
 }

@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
 
     protected int currentHP;
 
-    public void TakeDamage(int dmg)
+    public virtual void TakeDamage(int dmg)
     {
         currentHP -= dmg;
 
