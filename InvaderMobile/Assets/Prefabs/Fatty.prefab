@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 8983363293999219215}
   - component: {fileID: 8983363293999219214}
   - component: {fileID: 8983363293999219210}
+  - component: {fileID: 8497356584784223246}
   m_Layer: 0
   m_Name: Fatty
   m_TagString: Enemy
@@ -205,3 +206,19 @@ MonoBehaviour:
   movementSpeedIncrease: 0.12
   leftEdge: {fileID: 5234670336338180294}
   rightEdge: {fileID: 380759970936226897}
+--- !u!114 &8497356584784223246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8983363293999219213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 852e63e5b6f1d1649ba3d93df2854a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropPercentage: 20
+  dropRates: 64000000
+  pickUps:
+  - {fileID: 4013291194859457542, guid: 84f7eea2b8f387a40a3532b5a067e811, type: 3}

@@ -15,6 +15,8 @@ public class Spawner : MonoBehaviour
     
     public bool spawnOnPlayer = false;
 
+    public bool spawnOnSpot = false;
+
     [Header("Spawn Timer Variation")]
     public float setMinSpawnTimer = 3f;
     public float setMaxSpawnTimer = 5f;
@@ -54,6 +56,8 @@ public class Spawner : MonoBehaviour
         {
             if (spawnOnPlayer)
                 Instantiate(spawnObject, new Vector2(playerTransform.position.x, spawnRangeY), Quaternion.identity);
+            else if (spawnOnSpot)
+                Instantiate(spawnObject, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             else
                 Instantiate(spawnObject, new Vector2(spawnRangeX, spawnRangeY), Quaternion.identity);
 

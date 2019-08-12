@@ -42,7 +42,10 @@ public class Fatty : Enemy
 
         transform.eulerAngles = new Vector3(0, 0, 30);
 
-        movingRight = true;
+        if (Random.Range(0, 100) < 50)
+            movingRight = true;
+        else
+            movingRight = false;
 
         currentHP = maxHP;
 
