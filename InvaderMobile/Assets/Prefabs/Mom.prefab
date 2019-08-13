@@ -154,8 +154,7 @@ MonoBehaviour:
     type: 3}
   initialMovementTimer: 2
   fowardMovement: 0.5
-  babyShip: {fileID: 1392153286499610149, guid: 07dc2c0d336deb24eba4f1b7da494c48,
-    type: 3}
+  babyShip: {fileID: 599336877545171178, guid: 07dc2c0d336deb24eba4f1b7da494c48, type: 3}
   setBabySpawnTimer: 2
 --- !u!114 &1167679147276845384
 MonoBehaviour:

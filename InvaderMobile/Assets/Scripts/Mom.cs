@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Mom : Enemy
 {
-
     [Header("Spawn Movement Variables")]
     public float initialMovementTimer = 1f;
     public float fowardMovement = 2f;
@@ -66,6 +65,6 @@ public class Mom : Enemy
     {
         Instantiate(babyShip, transform.position + new Vector3(0f, -0.2f, 0f), Quaternion.identity);
 
-        babySpawnTimer = setBabySpawnTimer;
+        babySpawnTimer = setBabySpawnTimer; 
     }
 }
