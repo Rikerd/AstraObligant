@@ -61,6 +61,9 @@ public class Spawner : MonoBehaviour
             else
                 Instantiate(spawnObject, new Vector2(spawnRangeX, spawnRangeY), Quaternion.identity);
 
+            if (!spawnOnPlayer)
+                spawnRangeX = Random.Range(minPosition.position.x, maxPosition.position.x);
+
             spawnTimer = Random.Range(setMinSpawnTimer, setMaxSpawnTimer);
         }
     }
