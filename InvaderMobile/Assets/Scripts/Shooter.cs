@@ -17,6 +17,10 @@ public class Shooter : Enemy
     public GameObject bullet;
     public float setShootTimer = 2f;
 
+    [Header("Edges")]
+    public Transform leftEdge;
+    public Transform rightEdge;
+
     private float shootTimer;
 
     private float initialMovementTimer;
@@ -111,12 +115,12 @@ public class Shooter : Enemy
 
     private bool moveRightCheck()
     {
-        return movingRight && (rb2d.position + movement * Time.fixedDeltaTime).x <= max.x - 0.28f;
+        return movingRight && ((Vector2) rightEdge.position + movement * Time.fixedDeltaTime).x <= max.x;
     }
 
     private bool moveLeftCheck()
     {
-        return !movingRight && (rb2d.position - movement * Time.fixedDeltaTime).x >= min.x + 0.28f;
+        return !movingRight && ((Vector2) leftEdge.position - movement * Time.fixedDeltaTime).x >= min.x;
     }
 
     private void Shoot()
