@@ -19,8 +19,10 @@ public class Mom : Enemy
     private bool initialMovement;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
+
         babySpawnTimer = setBabySpawnTimer;
 
         rb2d = GetComponent<Rigidbody2D>();

@@ -16,6 +16,11 @@ public class Enemy : MonoBehaviour
 
     protected int currentHP;
 
+    public virtual void Start()
+    {
+        currentHP = maxHP;
+    }
+
     public virtual void TakeDamage(int dmg)
     {
         currentHP -= dmg;

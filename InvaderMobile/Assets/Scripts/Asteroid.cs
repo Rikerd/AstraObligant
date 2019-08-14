@@ -23,15 +23,15 @@ public class Asteroid : Enemy
     private Rigidbody2D rb2d;
 
     // Start is called before the first frame update
-    void Start()
+    public override  void Start()
     {
+        base.Start();
+
         asteroidSize = Random.Range(minSize, maxSize);
         movementSpeed = Random.Range(minMovementSpeed, maxMovementSpeed);
         rotationSpeed = Random.Range(minRotationSpeed, maxRotationSpeed);
 
         transform.localScale = new Vector3(asteroidSize, asteroidSize, 1);
-
-        currentHP = maxHP;
 
         rb2d = GetComponent<Rigidbody2D>();
     }

@@ -9,7 +9,8 @@ public class Shooter : Enemy
     public float bulletSpeed = 1f;
 
     [Header("Spawn Movement Variables")]
-    public float initialMovementTimer = 1f;
+    public float minInitialMovementTimer = 0.8f;
+    public float maxInitialMovementTimer = 1.2f;
     public float fowardMovement = 2f;
 
     [Header("Shooting Variables")]
@@ -17,6 +18,8 @@ public class Shooter : Enemy
     public float setShootTimer = 2f;
 
     private float shootTimer;
+
+    private float initialMovementTimer;
 
     private Vector2 max;
     private Vector2 min;
@@ -30,9 +33,13 @@ public class Shooter : Enemy
     private bool initialMovement;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
+
         shootTimer = setShootTimer;
+
+        initialMovementTimer = Random.Range(minInitialMovementTimer, maxInitialMovementTimer);
 
         movingRight = true;
 

@@ -29,8 +29,10 @@ public class Fatty : Enemy
     private Rigidbody2D rb2d;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
+
         fattySize = Random.Range(minSize, maxSize);
         movementSpeed = Random.Range(minMovementSpeed, maxMovementSpeed);
         fattySize = Random.Range(minSize, maxSize);
@@ -46,8 +48,6 @@ public class Fatty : Enemy
             movingRight = true;
         else
             movingRight = false;
-
-        currentHP = maxHP;
 
         rb2d = GetComponent<Rigidbody2D>();
     }
