@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Fatty : Enemy
 {
+    public int maxHpLoss = 15;
+
     [Header("Fatty Size")]
     public float minSize = 2f;
     public float maxSize = 2.5f;
@@ -73,7 +75,7 @@ public class Fatty : Enemy
 
         print(currentHP);   
 
-        if (currentHP >= 15)
+        if (maxHP - currentHP <= maxHpLoss)
         {
             movementSpeed += movementSpeedIncrease;
         }
