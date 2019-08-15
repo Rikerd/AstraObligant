@@ -21,6 +21,9 @@ public class Shooter : Enemy
     public Transform leftEdge;
     public Transform rightEdge;
 
+    [Header("Barrels")]
+    public Transform[] barrels;
+
     private float shootTimer;
 
     private float initialMovementTimer;
@@ -125,13 +128,13 @@ public class Shooter : Enemy
 
     private void Shoot()
     {
-        GameObject rightBullet = Instantiate(bullet, transform.position + new Vector3(0.15f, -0.2f, 0f), Quaternion.identity);
-        rightBullet.GetComponent<EnemyBullet>().setDamage(damage);
-        rightBullet.GetComponent<EnemyBullet>().setMovementSpeed(bulletSpeed);
 
-        GameObject leftBullet = Instantiate(bullet, transform.position - new Vector3(0.15f, 0.2f, 0f), Quaternion.identity);
-        leftBullet.GetComponent<EnemyBullet>().setDamage(damage);
-        leftBullet.GetComponent<EnemyBullet>().setMovementSpeed(bulletSpeed);
+        foreach (Transform barrel in barrels)
+        {
+            GameObject newBullet = Instantiate(bullet, barrel.position, Quaternion.identity);
+            newBullet.GetComponent<EnemyBullet>().setDamage(damage);
+            newBullet.GetComponent<EnemyBullet>().setMovementSpeed(bulletSpeed);
+        }
 
         shootTimer = setShootTimer;
     }
