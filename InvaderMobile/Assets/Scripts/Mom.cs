@@ -32,24 +32,27 @@ public class Mom : Enemy
 
     private void Update()
     {
-        if (initialMovement)
+        if (!isDead)
         {
-            initialMovementTimer -= Time.deltaTime;
+            if (initialMovement)
+            {
+                initialMovementTimer -= Time.deltaTime;
 
-            if (initialMovementTimer <= 0f)
-            {
-                initialMovement = false;
-            }
-        }
-        else
-        {
-            if (babySpawnTimer > 0f)
-            {
-                babySpawnTimer -= Time.deltaTime;
+                if (initialMovementTimer <= 0f)
+                {
+                    initialMovement = false;
+                }
             }
             else
             {
-                Spawn();
+                if (babySpawnTimer > 0f)
+                {
+                    babySpawnTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    Spawn();
+                }
             }
         }
     }
@@ -57,9 +60,12 @@ public class Mom : Enemy
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (initialMovement)
+        if (!isDead)
         {
-            rb2d.MovePosition(rb2d.position - new Vector2(0f, fowardMovement) * Time.fixedDeltaTime);
+            if (initialMovement)
+            {
+                rb2d.MovePosition(rb2d.position - new Vector2(0f, fowardMovement) * Time.fixedDeltaTime);
+            }
         }
     }
 

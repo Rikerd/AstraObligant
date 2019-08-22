@@ -152,6 +152,7 @@ MonoBehaviour:
   scoreValue: 100
   scorePrompt: {fileID: 3068286878566692857, guid: 30382c747f9aa2d4295543afd8bbcd2a,
     type: 3}
+  isBoss: 1
   initialMovementTimer: 3
   fowardMovement: 0.5
   babyShip: {fileID: 7583649910215294611, guid: db6a44694d4371f40bc30d59771ded4c,

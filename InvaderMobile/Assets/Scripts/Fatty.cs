@@ -57,7 +57,10 @@ public class Fatty : Enemy
     // Update is called once per frame
     void FixedUpdate()
     {
-        moveFatty();
+        if (!isDead)
+        {
+            moveFatty();
+        }
     }
 
     public override void TakeDamage(int dmg)

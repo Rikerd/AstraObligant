@@ -199,6 +199,7 @@ MonoBehaviour:
   scoreValue: 200
   scorePrompt: {fileID: 3068286878566692857, guid: 30382c747f9aa2d4295543afd8bbcd2a,
     type: 3}
+  isBoss: 1
   maxHpLoss: 15
   minSize: 5
   maxSize: 5

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class GameManager : MonoBehaviour
         Setup
     }
 
-    public int currentLevel = 1;
+    public int currentLevel = 0;
 
     public float setRoundTimer = 300f;
 
@@ -23,11 +24,17 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> currentEnemySpawners;
     public List<GameObject> currentBosses;
+    public List<Enemy> currentBossScripts;
+
+    private GameObject levelPrompt;
+    private Text levelPromptText;
 
     private float roundTimer;
     private float breakTimer;
 
     private GameState currentState;
+
+    private bool coroutineStarted;
 
     // Start is called before the first frame update
     void Start()
@@ -36,8 +43,13 @@ public class GameManager : MonoBehaviour
 
         roundTimer = setRoundTimer;
 
-        breakTimer = setBreakTimer;
-        
+        breakTimer = 0;
+
+        levelPrompt = GameObject.Find("Level Prompt");
+        levelPromptText = levelPrompt.GetComponent<Text>();
+        levelPrompt.SetActive(false);
+
+        coroutineStarted = false;
     }
 
     // Update is called once per frame
@@ -47,10 +59,9 @@ public class GameManager : MonoBehaviour
         {
             breakTimer -= Time.deltaTime;
 
-            if (breakTimer <= 0f)
+            if (breakTimer <= 0f && !coroutineStarted)
             {
-                roundTimer = setRoundTimer;
-                currentState = GameState.Round;
+                StartCoroutine(NextLevel());
             }
         }
         else if (currentState == GameState.Round)
@@ -59,12 +70,23 @@ public class GameManager : MonoBehaviour
 
             if (roundTimer <= 0f)
             {
+                clearField();
                 currentState = GameState.Boss;
+                bossPicker();
             }
         }
         else if (currentState == GameState.Boss)
         {
+            foreach (Enemy boss in currentBossScripts)
+            {
+                if (!boss.checkDeath())
+                {
+                    return;
+                }
+            }
 
+            clearField();
+            currentState = GameState.Setup;
         }
     }
 
@@ -86,6 +108,7 @@ public class GameManager : MonoBehaviour
         }
 
         currentBosses.Clear();
+        currentBossScripts.Clear();
     }
 
     public void enemySpawnerPicker()
@@ -93,7 +116,7 @@ public class GameManager : MonoBehaviour
         // Disable and clears all previous enemies spawners
         clearBasicEnemySpawners();
 
-        if (currentLevel <= 1 && currentLevel >= 5)
+        if (currentLevel >= 1 && currentLevel <= 5)
         {
             currentEnemySpawners.Add(normalEnemySpawners[0]);
             currentEnemySpawners.Add(normalEnemySpawners[currentLevel]);
@@ -119,27 +142,62 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void bossSpawnerPicker()
+    public void bossPicker()
     {
         // Disable and clears all previous enemies spawners
         clearBasicEnemySpawners();
 
-        // Adds Asteroids to queue
-        currentEnemySpawners.Add(normalEnemySpawners[0]);
-
         // Disable and clears all previous boss spawners
         clearBosses();
 
-        if (currentLevel <= 1 && currentLevel >= 5)
+        if (currentLevel == 1 || currentLevel == 4)
         {
-            currentBosses.Add(bossEnemies[0]);
-            currentBosses.Add(bossEnemies[currentLevel]);
+            currentEnemySpawners.Add(normalEnemySpawners[0]);
+
+            GameObject newObject = Instantiate(bossEnemies[currentLevel - 1], bossEnemies[currentLevel - 1].transform.position, Quaternion.identity);
+
+            currentBosses.Add(newObject);
+            currentBossScripts.Add(newObject.GetComponent<Enemy>());
+        }
+        else if (currentLevel == 2)
+        {
+            currentEnemySpawners.Add(normalEnemySpawners[2]);
+
+            GameObject newObject = Instantiate(bossEnemies[0], bossEnemies[0].transform.position, Quaternion.identity);
+
+            currentBosses.Add(newObject);
+            currentBossScripts.Add(newObject.GetComponent<Enemy>());
+        }
+        else if (currentLevel == 3 || currentLevel == 4)
+        {
+            currentEnemySpawners.Add(normalEnemySpawners[0]);
+
+            GameObject newObject = Instantiate(bossEnemies[currentLevel - 2], bossEnemies[currentLevel - 2].transform.position, Quaternion.identity);
+
+            currentBosses.Add(newObject);
+            currentBossScripts.Add(newObject.GetComponent<Enemy>());
         }
         else
         {
+            int rand = Random.Range(0, 100);
+
+            if (rand < 50)
+            {
+                currentEnemySpawners.Add(normalEnemySpawners[0]);
+            }
+            else
+            {
+                currentEnemySpawners.Add(normalEnemySpawners[2]);
+            }
+
             int spawner = Random.Range(0, bossEnemies.Count);
 
             currentEnemySpawners.Add(bossEnemies[spawner]);
+        }
+
+        foreach (GameObject currentEnemySpawner in currentEnemySpawners)
+        {
+            currentEnemySpawner.SetActive(true);
         }
 
         foreach (GameObject currentBoss in currentBosses)
@@ -148,11 +206,45 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void nextLevel()
+    IEnumerator NextLevel()
     {
         // Do next level prompt
         // Set up new current spawner;
-
+        coroutineStarted = true;
         currentLevel++;
+
+        string result = "";
+        int length = currentLevel.ToString().Length;
+
+        for (int i = length; i < 2; i++)
+        {
+            result += "0";
+        }
+
+        result += currentLevel;
+
+        levelPromptText.text = "LEVEL - " + result;
+        levelPrompt.SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        levelPrompt.SetActive(false);
+
+
+        roundTimer = setRoundTimer;
+        currentState = GameState.Round;
+        enemySpawnerPicker();
+
+        coroutineStarted = false;
+    }
+
+    public void clearField()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<Enemy>().killKey();
+        }
     }
 }

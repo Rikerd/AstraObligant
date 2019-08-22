@@ -14,7 +14,11 @@ public class Enemy : MonoBehaviour
 
     public GameObject scorePrompt;
 
+    public bool isBoss = false;
+
     protected int currentHP;
+
+    protected bool isDead = false;
 
     public virtual void Start()
     {
@@ -23,17 +27,29 @@ public class Enemy : MonoBehaviour
 
     public virtual void TakeDamage(int dmg)
     {
-        currentHP -= dmg;
-
-        if (currentHP <= 0)
+        if (!isDead)
         {
-            addScore();
+            currentHP -= dmg;
 
-            GetComponent<DropSystem>().Drop();
-            createScorePrompt();
-            Destroy(gameObject);
+            if (currentHP <= 0)
+            {
+                addScore();
 
-            return;
+                GetComponent<DropSystem>().Drop();
+                createScorePrompt();
+
+                if (!isBoss)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    isDead = true;
+                    disableAll();
+                }
+
+                return;
+            }
         }
     }
 
@@ -46,5 +62,22 @@ public class Enemy : MonoBehaviour
     {
         GameObject prompt = Instantiate(scorePrompt, transform.position, Quaternion.identity);
         prompt.GetComponentInChildren<Text>().text = scoreValue.ToString();
+    }
+
+    public void disableAll()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    public bool checkDeath()
+    {
+        return isDead;
+    }
+
+    public void killKey()
+    {
+        currentHP = 0;
+        TakeDamage(0);
     }
 }

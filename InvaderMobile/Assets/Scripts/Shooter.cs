@@ -62,56 +62,61 @@ public class Shooter : Enemy
 
     public void Update()
     {
-        if (!initialMovement)
+        if (!isDead)
         {
-            if (shootTimer > 0f)
+            if (!initialMovement)
             {
-                shootTimer -= Time.deltaTime;
+                if (shootTimer > 0f)
+                {
+                    shootTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    Shoot();
+                }
             }
             else
             {
-                Shoot();
-            }
-        }
-        else
-        {
-            initialMovementTimer -= Time.deltaTime;
+                initialMovementTimer -= Time.deltaTime;
 
-            if (initialMovementTimer <= 0f)
-            {
-                initialMovement = false;
+                if (initialMovementTimer <= 0f)
+                {
+                    initialMovement = false;
+                }
             }
         }
-        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (initialMovement)
+        if (!isDead)
         {
-            rb2d.MovePosition(rb2d.position - new Vector2(0f, fowardMovement) * Time.fixedDeltaTime);
-        }
-        else
-        {
-            // Patrol Right Movement
-            if (moveRightCheck())
+            if (initialMovement)
             {
-                rb2d.MovePosition(rb2d.position + movement * Time.fixedDeltaTime);
+                rb2d.MovePosition(rb2d.position - new Vector2(0f, fowardMovement) * Time.fixedDeltaTime);
             }
             else
             {
-                movingRight = false;
-            }
+                // Patrol Right Movement
+                if (moveRightCheck())
+                {
+                    rb2d.MovePosition(rb2d.position + movement * Time.fixedDeltaTime);
+                }
+                else
+                {
+                    movingRight = false;
+                }
 
-            // Patrol Left Movement
-            if (moveLeftCheck())
-            {
-                rb2d.MovePosition(rb2d.position - movement * Time.fixedDeltaTime);
-            }
-            else
-            {
-                movingRight = true;
+                // Patrol Left Movement
+                if (moveLeftCheck())
+                {
+                    rb2d.MovePosition(rb2d.position - movement * Time.fixedDeltaTime);
+                }
+                else
+                {
+                    movingRight = true;
+                }
             }
         }
     }

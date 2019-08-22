@@ -109,7 +109,7 @@ MonoBehaviour:
     type: 3}
   spawnOnPlayer: 0
   spawnOnSpot: 0
-  setMinSpawnTimer: 18
-  setMaxSpawnTimer: 25
+  setMinSpawnTimer: 15
+  setMaxSpawnTimer: 22
   minPosition: {fileID: 9000562218229620449}
   maxPosition: {fileID: 4331269538133951887}
