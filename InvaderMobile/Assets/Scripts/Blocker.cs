@@ -75,4 +75,9 @@ public class Blocker : MonoBehaviour
     {
         movingRight = rightDirection;
     }
+
+    public void killKey()
+    {
+        Destroy(gameObject);
+    }
 }

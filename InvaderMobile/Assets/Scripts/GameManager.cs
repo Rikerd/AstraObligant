@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour
         // Disable and clears all previous boss spawners
         clearBosses();
 
-        if (currentLevel == 1 || currentLevel == 4)
+        if (currentLevel == 1)
         {
             currentEnemySpawners.Add(normalEnemySpawners[0]);
 
@@ -241,10 +241,16 @@ public class GameManager : MonoBehaviour
     public void clearField()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] blockers = GameObject.FindGameObjectsWithTag("Blocker");
 
         foreach (GameObject enemy in enemies)
         {
             enemy.GetComponent<Enemy>().killKey();
+        }
+
+        foreach(GameObject blocker in blockers)
+        {
+            blocker.GetComponent<Blocker>().killKey();
         }
     }
 }
