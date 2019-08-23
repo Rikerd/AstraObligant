@@ -17,13 +17,16 @@ public class ShipHealth : PlayerDamageable
     public GameObject shieldObject;
     
     private HpBar hpUIController;
-    private Slider shieldSlider;
 
-    private ShieldController shieldController;
+    #region Old Shield Stuff
+    //private Slider shieldSlider;
 
-    private bool shielded;
+    //private ShieldController shieldController;
 
-    private bool recharging;
+    //private bool shielded;
+
+    //private bool recharging;
+    #endregion Old Shield Stuff
 
     // Start is called before the first frame update
     void Start()
@@ -32,20 +35,23 @@ public class ShipHealth : PlayerDamageable
         currentShield = maxShield;
 
         hpUIController = GameObject.Find("Health Bar").GetComponent<HpBar>();
-        shieldSlider = GameObject.Find("Shield Bar").GetComponent<Slider>();
 
-        shieldController = GetComponentInParent<ShieldController>();
+        #region Old Shield Stuff
+        //shieldSlider = GameObject.Find("Shield Bar").GetComponent<Slider>();
 
-        shieldSlider.maxValue = maxShield;
-        shieldSlider.value = currentShield;
+        //shieldController = GetComponentInParent<ShieldController>();
 
-        shielded = false;
-        recharging = false;
+        //shieldSlider.maxValue = maxShield;
+        //shieldSlider.value = currentShield;
+
+        //shielded = false;
+        //recharging = false;
+        #endregion Old Shield Stuff
     }
 
     private void Update()
     {
-        Recharge();
+        // Recharge();
 
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -53,26 +59,13 @@ public class ShipHealth : PlayerDamageable
         }
     }
 
-    private void Recharge()
-    {
-        if (recharging)
-        {
-            if (currentShield < maxShield)
-            {
-                currentShield += shieldRechargeRate * Time.deltaTime;
-            }
-
-            if (currentShield > maxShield)
-            {
-                currentShield = maxShield;
-            }
-
-            shieldSlider.value = currentShield;
-        }
-    }
-
     public override void TakeDamage(int dmg)
     {
+        currentHP -= dmg;
+        hpUIController.damageHealth(dmg);
+
+        #region Old Shield Stuff
+        /*
         if (!shielded)
         {
             currentHP -= dmg;
@@ -94,10 +87,32 @@ public class ShipHealth : PlayerDamageable
 
             shieldSlider.value = currentShield;
         }
+        */
+        #endregion Old Shield Stuff
 
         if (currentHP <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    #region Old Shield Stuff
+    /*
+    private void Recharge()
+    {
+        if (recharging)
+        {
+            if (currentShield < maxShield)
+            {
+                currentShield += shieldRechargeRate * Time.deltaTime;
+            }
+
+            if (currentShield > maxShield)
+            {
+                currentShield = maxShield;
+            }
+
+            shieldSlider.value = currentShield;
         }
     }
 
@@ -129,6 +144,8 @@ public class ShipHealth : PlayerDamageable
     {
         return (currentShield / maxShield) * 100;
     }
+    */
+    #endregion Old Shield Stuff
 
     public int getCurrentHp()
     {

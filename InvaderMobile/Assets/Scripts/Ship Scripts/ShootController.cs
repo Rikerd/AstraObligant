@@ -28,27 +28,39 @@ public class ShootController : MonoBehaviour
             shotDelay -= Time.deltaTime;
         }
         
-        /*
-        if (Input.touchCount > 0 && shotDelay <= 0f)
+        if (Input.touchCount > 0)
         {
-            Shoot();
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                Shoot();
+            }
         }
-        else if (Input.touchCount <= 0)
+        #region Old Shield Stuff
+        /*else if (Input.touchCount <= 0)
         {
             shield.StartShield();
         }
         */
+        #endregion Old Shield Stuff
 
         #region Keyboard Controls
         // Keyboard Controls for Debugging
-        if (Input.GetKey(KeyCode.Space) && shotDelay <= 0f)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
         }
+
+        #region Old Shield Stuff
+        /*
         else
         {
             shield.StartShield();
         }
+        */
+        #endregion Old Shield Stuff
+
         #endregion Keyboard Controls
     }
 
@@ -58,6 +70,6 @@ public class ShootController : MonoBehaviour
 
         shotDelay = setShotDelay;
 
-        shield.StopShield();
+        //shield.StopShield();
     }
 }

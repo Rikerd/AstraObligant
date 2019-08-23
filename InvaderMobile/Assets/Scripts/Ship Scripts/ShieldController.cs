@@ -23,6 +23,8 @@ public class ShieldController : MonoBehaviour
         shieldDelayTimer = setShieldDelay;
     }
 
+    // OLD SHIELD STUFF UNCOMMENT TO REACTIVATE
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -60,4 +62,5 @@ public class ShieldController : MonoBehaviour
         hpController.DeactivateShield();
         hpController.ActivateRecharge();
     }
+    */
 }

@@ -35,7 +35,12 @@ public class Enemy : MonoBehaviour
             {
                 addScore();
 
-                GetComponent<DropSystem>().Drop();
+                
+                if (GetComponent<DropSystem>() != null)
+                {
+                    GetComponent<DropSystem>().Drop();
+                }
+
                 createScorePrompt();
 
                 if (!isBoss)

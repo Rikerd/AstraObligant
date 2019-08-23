@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour
+public class EnemyBullet : Enemy
 {
     private float movementSpeed;
-
-    private int damage;
 
     private Rigidbody2D rb2d;
     private bool hit;
