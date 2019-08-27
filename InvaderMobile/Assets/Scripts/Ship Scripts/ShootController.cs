@@ -8,25 +8,27 @@ public class ShootController : MonoBehaviour
 
     public float setShotDelay = 0.3f;
 
-    private ShieldController shield;
+    //private ShieldController shield;
 
-    private float shotDelay;
+    //private float shotDelay;
     
     // Start is called before the first frame update
     void Start()
     {
-        shield = GetComponent<ShieldController>();
+        //shield = GetComponent<ShieldController>();
 
-        shotDelay = 0f;
+        //shotDelay = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if (shotDelay > 0f)
         {
             shotDelay -= Time.deltaTime;
         }
+        */
         
         if (Input.touchCount > 0)
         {
@@ -68,7 +70,7 @@ public class ShootController : MonoBehaviour
     {
         Instantiate(bullet, transform.position + new Vector3(0f, 0.3f), Quaternion.identity);
 
-        shotDelay = setShotDelay;
+        //shotDelay = setShotDelay;
 
         //shield.StopShield();
     }

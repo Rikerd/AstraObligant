@@ -157,14 +157,15 @@ MonoBehaviour:
   scoreValue: 10
   scorePrompt: {fileID: 3068286878566692857, guid: 30382c747f9aa2d4295543afd8bbcd2a,
     type: 3}
+  isBoss: 0
   patrolSpeed: 0.6
-  bulletSpeed: 1
+  bulletSpeed: 1.5
   setDownwardTimer: 1
   minInitialMovementTimer: 0.5
   maxInitialMovementTimer: 0.8
   fowardMovement: 2
   bullet: {fileID: 731126428111183442, guid: 51ac9d2a3f2991d4fb87fbe4813a2fb2, type: 3}
-  setShootTimer: 2
+  setShootTimer: 1.5
 --- !u!114 &1945741677707429585
 MonoBehaviour:
   m_ObjectHideFlags: 0

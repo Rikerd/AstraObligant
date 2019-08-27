@@ -166,13 +166,14 @@ MonoBehaviour:
   scoreValue: 20
   scorePrompt: {fileID: 3068286878566692857, guid: 30382c747f9aa2d4295543afd8bbcd2a,
     type: 3}
-  patrolSpeed: 0.4
-  bulletSpeed: 1
-  minInitialMovementTimer: 0.8
-  maxInitialMovementTimer: 1.2
+  isBoss: 0
+  patrolSpeed: 0.7
+  bulletSpeed: 2.2
+  minInitialMovementTimer: 0.7
+  maxInitialMovementTimer: 1
   fowardMovement: 4
   bullet: {fileID: 731126428111183442, guid: 0841fa4c5719fde4da569197cf0cf129, type: 3}
-  setShootTimer: 2
+  setShootTimer: 0.9
   leftEdge: {fileID: 5402806327670486663}
   rightEdge: {fileID: 6504765083755878691}
   barrels:
