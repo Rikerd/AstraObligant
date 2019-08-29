@@ -2,17 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MultiplierPickUp : MonoBehaviour
+public class MultiplierPickUp : PickUpItems
 {
-    // Start is called before the first frame update
-    void Start()
+    public int multiplier = 2;
+
+    public void Start()
     {
-        
+        BaseStart();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+    }
+
+    public override bool UsePickUp()
+    {
+        ShootController.shootController.DamageMultiplier(multiplier);
+
+        Destroy(gameObject);
+
+        return true;
     }
 }
