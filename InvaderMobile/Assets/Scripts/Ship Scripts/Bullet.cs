@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
     public float movementSpeed;
-    public int damage;
 
     private Rigidbody2D rb2d;
     private bool hit;
@@ -64,7 +63,7 @@ public class Bullet : MonoBehaviour {
         {
             if (collision.tag == "Enemy")
             {
-                collision.GetComponent<Enemy>().TakeDamage(damage);
+                collision.GetComponent<Enemy>().TakeDamage(ShootController.shootController.GetDamage());
                 Destroy(gameObject);
             }
 
@@ -79,7 +78,7 @@ public class Bullet : MonoBehaviour {
         
         if (reflected && collision.tag == "Player")
         {
-            collision.GetComponent<PlayerDamageable>().TakeDamage(damage);
+            collision.GetComponent<PlayerDamageable>().TakeDamage(ShootController.shootController.GetDamage());
             Destroy(gameObject);
         }
 

@@ -35,7 +35,7 @@ public class Spawner : MonoBehaviour
     {
         spawnTimer = Random.Range(setMaxSpawnTimer, setMaxSpawnTimer);
 
-        playerTransform = GameObject.Find("TestShip").transform;
+        playerTransform = GameObject.Find("Ship").transform;
 
         if (!spawnOnPlayer)
         {

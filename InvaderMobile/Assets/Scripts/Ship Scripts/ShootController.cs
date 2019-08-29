@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class ShootController : MonoBehaviour
 {
+    public static ShootController shootController;
+
     public GameObject bullet;
 
+    public int damage = 1;
+
     public float setShotDelay = 0.3f;
+
+    [Header("Spawn Positions")]
+    public Transform centralShot;
+    public Transform leftShot;
+    public Transform rightShot;
+
+    private bool tripleShot = false;
 
     //private ShieldController shield;
 
@@ -18,6 +29,8 @@ public class ShootController : MonoBehaviour
         //shield = GetComponent<ShieldController>();
 
         //shotDelay = 0f;
+
+        shootController = this;
     }
 
     // Update is called once per frame
@@ -68,10 +81,33 @@ public class ShootController : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(bullet, transform.position + new Vector3(0f, 0.3f), Quaternion.identity);
+        Instantiate(bullet, centralShot.position, Quaternion.identity);
+
+        if (tripleShot)
+        {
+            Instantiate(bullet, leftShot.position, Quaternion.identity);
+            Instantiate(bullet, rightShot.position, Quaternion.identity);
+        }
 
         //shotDelay = setShotDelay;
 
         //shield.StopShield();
     }
+    
+    public void ActivateTripleShot()
+    {
+        tripleShot = true;
+    }
+
+    public int GetDamage()
+    {
+        return damage;
+    }
+
+    public void DamageMultiplier(int multiplier)
+    {
+        damage *= multiplier;
+    }
+
+    
 }
