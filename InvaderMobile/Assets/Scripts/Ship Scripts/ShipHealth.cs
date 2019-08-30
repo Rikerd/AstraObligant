@@ -55,7 +55,7 @@ public class ShipHealth : PlayerDamageable
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            TakeDamage(2);
+            IncreaseMaxHp();
         }
     }
 
@@ -161,11 +161,16 @@ public class ShipHealth : PlayerDamageable
     {
         currentHP += amt;
 
-        if (currentHP < maxHP)
+        if (currentHP > maxHP)
         {
             currentHP = maxHP;
         }
 
         hpUIController.healHealth(amt);
+    }
+
+    public void IncreaseMaxHp()
+    {
+        maxHP += 3;
     }
 }

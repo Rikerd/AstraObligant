@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HpBar : MonoBehaviour {
+
     private Transform[] hearts;
     private int heartIndexToDisable;
 
     // Use this for initialization
     void Start () {
         hearts = transform.GetComponentsInChildren<Transform>();
+
         heartIndexToDisable = hearts.Length - 1;
+
+        disableHearts();
 	}
 	
 	// Update is called once per frame
@@ -39,6 +43,17 @@ public class HpBar : MonoBehaviour {
 
             heartIndexToDisable++; // HEART INDEX TO ACTIVATE
             hearts[heartIndexToDisable].gameObject.SetActive(true);
+        }
+    }
+
+    public void disableHearts()
+    {
+        int currentHP = GameObject.Find("Ship").GetComponentInChildren<ShipHealth>().getCurrentHp();
+
+        while (heartIndexToDisable != currentHP)
+        {
+            hearts[heartIndexToDisable].gameObject.SetActive(false);
+            heartIndexToDisable--;
         }
     }
 }

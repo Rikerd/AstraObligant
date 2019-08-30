@@ -8,6 +8,8 @@ public class HpPickUp : PickUpItems
 
     private ShipHealth hp;
 
+    private bool isColliding = false;
+
     public void Start()
     {
         BaseStart();
@@ -23,11 +25,22 @@ public class HpPickUp : PickUpItems
 
     public override bool UsePickUp()
     {
+        if (isColliding)
+        {
+            return false;
+        }
+
+        print("hi");
+
         if (hp.getCurrentHp() < hp.getMaxHp())
         {
+            isColliding = true;
+
             hp.Heal(hpRecovery);
 
             Destroy(gameObject);
+
+            isColliding = true;
 
             return true;
         }
