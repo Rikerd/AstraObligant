@@ -172,5 +172,17 @@ public class ShipHealth : PlayerDamageable
     public void IncreaseMaxHp()
     {
         maxHP += 3;
+
+        StartCoroutine(FullHeal());
+    }
+
+    IEnumerator FullHeal()
+    {
+        while (currentHP < maxHP)
+        {
+            Heal(1);
+
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }

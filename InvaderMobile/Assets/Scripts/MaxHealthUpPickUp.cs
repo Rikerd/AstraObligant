@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MaxHealthUpPickUp : PickUpItems
 {
-    public int multiplier = 2;
-
     public void Start()
     {
         BaseStart();
