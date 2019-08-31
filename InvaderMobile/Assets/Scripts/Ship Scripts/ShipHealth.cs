@@ -18,6 +18,8 @@ public class ShipHealth : PlayerDamageable
     
     private HpBar hpUIController;
 
+    private ScreenShake shake;
+
     #region Old Shield Stuff
     //private Slider shieldSlider;
 
@@ -35,6 +37,8 @@ public class ShipHealth : PlayerDamageable
         currentShield = maxShield;
 
         hpUIController = GameObject.Find("Health Bar").GetComponent<HpBar>();
+
+        shake = Camera.main.GetComponent<ScreenShake>();
 
         #region Old Shield Stuff
         //shieldSlider = GameObject.Find("Shield Bar").GetComponent<Slider>();
@@ -63,6 +67,7 @@ public class ShipHealth : PlayerDamageable
     {
         currentHP -= dmg;
         hpUIController.damageHealth(dmg);
+        shake.StartShake();
 
         #region Old Shield Stuff
         /*
