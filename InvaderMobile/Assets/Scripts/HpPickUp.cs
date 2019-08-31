@@ -29,9 +29,7 @@ public class HpPickUp : PickUpItems
         {
             return false;
         }
-
-        print("hi");
-
+        
         if (hp.getCurrentHp() < hp.getMaxHp())
         {
             isColliding = true;
