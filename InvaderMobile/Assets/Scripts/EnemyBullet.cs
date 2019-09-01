@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyBullet : Enemy
 {
+    public GameObject hitParticle;
+
     private float movementSpeed;
 
     private Rigidbody2D rb2d;
@@ -38,6 +40,7 @@ public class EnemyBullet : Enemy
         if (collision.tag == "Player")
         {
             collision.GetComponent<PlayerDamageable>().TakeDamage(damage);
+            Instantiate(hitParticle, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

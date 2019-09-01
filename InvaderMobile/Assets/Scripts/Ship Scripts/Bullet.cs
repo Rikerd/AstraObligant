@@ -5,6 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
     public float movementSpeed;
 
+    public GameObject particle;
+
     private Rigidbody2D rb2d;
     private bool hit;
     private bool reflected = false;
@@ -64,6 +66,7 @@ public class Bullet : MonoBehaviour {
             if (collision.tag == "Enemy")
             {
                 collision.GetComponent<Enemy>().TakeDamage(ShootController.shootController.GetDamage());
+                Instantiate(particle, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
 
@@ -71,6 +74,7 @@ public class Bullet : MonoBehaviour {
             {
                 if (collision.GetComponent<PickUpItems>().UsePickUp())
                 {
+                    Instantiate(particle, transform.position, Quaternion.identity);
                     Destroy(gameObject);
                 }
             }
@@ -78,6 +82,7 @@ public class Bullet : MonoBehaviour {
         
         if (reflected && collision.tag == "Player")
         {
+            // ADD PARTICLE FOR REFLECTED
             collision.GetComponent<PlayerDamageable>().TakeDamage(ShootController.shootController.GetDamage());
             Destroy(gameObject);
         }
