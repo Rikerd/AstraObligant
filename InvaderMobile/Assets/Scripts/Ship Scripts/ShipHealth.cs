@@ -11,6 +11,8 @@ public class ShipHealth : PlayerDamageable
     
     public float shieldRechargeRate = 2f;
 
+    public float setInvincibleTimer = 1f;
+
     public int currentHP;
     public float currentShield;
 
@@ -19,6 +21,13 @@ public class ShipHealth : PlayerDamageable
     private HpBar hpUIController;
 
     private ScreenShake shake;
+
+    private SpriteRenderer sprite;
+
+    private Collider2D shipCollidier;
+
+    private bool invincible;
+    private float invincibleTimer;
 
     #region Old Shield Stuff
     //private Slider shieldSlider;
@@ -39,6 +48,13 @@ public class ShipHealth : PlayerDamageable
         hpUIController = GameObject.Find("Health Bar").GetComponent<HpBar>();
 
         shake = Camera.main.GetComponent<ScreenShake>();
+
+        sprite = GetComponent<SpriteRenderer>();
+
+        shipCollidier = GetComponent<Collider2D>();
+
+        invincible = false;
+        invincibleTimer = setInvincibleTimer;
 
         #region Old Shield Stuff
         //shieldSlider = GameObject.Find("Shield Bar").GetComponent<Slider>();
@@ -61,13 +77,30 @@ public class ShipHealth : PlayerDamageable
         {
             IncreaseMaxHp();
         }
+
+        if (invincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+
+            sprite.enabled = !sprite.enabled;
+
+            if (invincibleTimer <= 0f)
+            {
+                invincible = false;
+
+                sprite.enabled = true;
+            }
+        }
     }
 
     public override void TakeDamage(int dmg)
     {
-        currentHP -= dmg;
-        hpUIController.damageHealth(dmg);
-        shake.StartShake();
+        if (!invincible)
+        {
+            currentHP -= dmg;
+            hpUIController.damageHealth(dmg);
+            shake.StartShake();
+        }
 
         #region Old Shield Stuff
         /*
@@ -98,6 +131,12 @@ public class ShipHealth : PlayerDamageable
         if (currentHP <= 0)
         {
             Destroy(gameObject);
+        }
+        else
+        {
+            invincible = true;
+
+            invincibleTimer = setInvincibleTimer;
         }
     }
 

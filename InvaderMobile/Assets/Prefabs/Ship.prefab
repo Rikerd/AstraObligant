@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4655783354631332770, guid: 3a007b328b44ca5459763067a8a937c8, type: 3}
+  damage: 1
   setShotDelay: 0.18
   centralShot: {fileID: 8215614805456874905}
   leftShot: {fileID: 2918889368090977345}
@@ -183,6 +184,7 @@ MonoBehaviour:
   maxHP: 3
   maxShield: 100
   shieldRechargeRate: 2
+  setInvincibleTimer: 0.7
   currentHP: 0
   currentShield: 0
   shieldObject: {fileID: 0}
