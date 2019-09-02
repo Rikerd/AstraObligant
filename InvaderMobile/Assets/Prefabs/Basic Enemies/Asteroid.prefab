@@ -155,6 +155,8 @@ MonoBehaviour:
   scorePrompt: {fileID: 3068286878566692857, guid: 30382c747f9aa2d4295543afd8bbcd2a,
     type: 3}
   isBoss: 0
+  particle: {fileID: 8935988471082332661, guid: 28f62c69efbfabe4a96d40b00353a47d,
+    type: 3}
   minSize: 1
   maxSize: 1.4
   minMovementSpeed: 0.6

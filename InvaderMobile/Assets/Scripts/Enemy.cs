@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
 
     public bool isBoss = false;
 
+    public GameObject particle;
+
     protected int currentHP;
 
     protected bool isDead = false;
@@ -42,6 +44,7 @@ public class Enemy : MonoBehaviour
                 }
 
                 createScorePrompt();
+                spawnParticle();
 
                 if (!isBoss)
                 {
@@ -67,6 +70,14 @@ public class Enemy : MonoBehaviour
     {
         GameObject prompt = Instantiate(scorePrompt, transform.position, Quaternion.identity);
         prompt.GetComponentInChildren<Text>().text = scoreValue.ToString();
+    }
+
+    public void spawnParticle()
+    {
+        if (particle != null)
+        {
+            Instantiate(particle, transform.position, Quaternion.identity);
+        }
     }
 
     public void disableAll()
