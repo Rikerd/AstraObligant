@@ -199,6 +199,10 @@ MonoBehaviour:
   scoreValue: 100
   scorePrompt: {fileID: 3068286878566692857, guid: 30382c747f9aa2d4295543afd8bbcd2a,
     type: 3}
+  isBoss: 0
+  particle: {fileID: 8935988471082332661, guid: 4d1473ea4a5566d41b17e9ce46f67ef4,
+    type: 3}
+  maxHpLoss: 15
   minSize: 2.5
   maxSize: 3
   minMovementSpeed: 0.1
