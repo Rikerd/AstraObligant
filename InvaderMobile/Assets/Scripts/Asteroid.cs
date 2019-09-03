@@ -55,6 +55,8 @@ public class Asteroid : Enemy
         {
             collision.GetComponent<PlayerDamageable>().TakeDamage(damage);
 
+            spawnParticle();
+
             Destroy(gameObject);
         }
     }

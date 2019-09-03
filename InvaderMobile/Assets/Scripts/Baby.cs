@@ -174,6 +174,8 @@ public class Baby : Enemy
         {
             collision.GetComponent<PlayerDamageable>().TakeDamage(damage);
 
+            spawnParticle();
+
             Destroy(gameObject);
         }
     }

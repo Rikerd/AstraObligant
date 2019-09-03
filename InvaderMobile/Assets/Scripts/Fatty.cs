@@ -123,6 +123,8 @@ public class Fatty : Enemy
         {
             collision.GetComponent<PlayerDamageable>().TakeDamage(damage);
 
+            spawnParticle();
+
             Destroy(gameObject);
         }
     }
