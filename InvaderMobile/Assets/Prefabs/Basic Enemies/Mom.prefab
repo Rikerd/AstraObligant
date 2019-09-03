@@ -152,6 +152,9 @@ MonoBehaviour:
   scoreValue: 100
   scorePrompt: {fileID: 3068286878566692857, guid: 30382c747f9aa2d4295543afd8bbcd2a,
     type: 3}
+  isBoss: 0
+  particle: {fileID: 8935988471082332661, guid: bb472ad7cbad60c42ae891e4f14490d3,
+    type: 3}
   initialMovementTimer: 2
   fowardMovement: 0.5
   babyShip: {fileID: 599336877545171178, guid: 07dc2c0d336deb24eba4f1b7da494c48, type: 3}

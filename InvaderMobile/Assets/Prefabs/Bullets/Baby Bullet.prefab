@@ -154,3 +154,7 @@ MonoBehaviour:
   scorePrompt: {fileID: 3068286878566692857, guid: 30382c747f9aa2d4295543afd8bbcd2a,
     type: 3}
   isBoss: 0
+  particle: {fileID: 8935988471082332661, guid: 49791f04b24f550488e22a9dca336b1e,
+    type: 3}
+  hitParticle: {fileID: 8935988471082332661, guid: 883d40765ecd3df48b879a19a2f763bb,
+    type: 3}
