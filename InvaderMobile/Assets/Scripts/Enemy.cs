@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     public bool isBoss = false;
 
     public GameObject particle;
+    public GameObject audioSource;
 
     protected int currentHP;
 
@@ -44,6 +45,7 @@ public class Enemy : MonoBehaviour
                 }
 
                 createScorePrompt();
+                spawnAudio();
                 spawnParticle();
 
                 if (!isBoss)
@@ -77,6 +79,14 @@ public class Enemy : MonoBehaviour
         if (particle != null)
         {
             Instantiate(particle, transform.position, Quaternion.identity);
+        }
+    }
+
+    public void spawnAudio()
+    {
+        if (audioSource != null)
+        {
+            Instantiate(audioSource, transform.position, Quaternion.identity);
         }
     }
 

@@ -19,6 +19,8 @@ public class ShootController : MonoBehaviour
 
     private bool tripleShot = false;
 
+    private AudioSource audioSource;
+
     //private ShieldController shield;
 
     //private float shotDelay;
@@ -31,6 +33,8 @@ public class ShootController : MonoBehaviour
         //shotDelay = 0f;
 
         shootController = this;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -81,6 +85,9 @@ public class ShootController : MonoBehaviour
 
     private void Shoot()
     {
+        audioSource.pitch = Random.Range(0.85f, 1.15f);
+        audioSource.Play();
+
         Instantiate(bullet, centralShot.position, Quaternion.identity);
 
         if (tripleShot)

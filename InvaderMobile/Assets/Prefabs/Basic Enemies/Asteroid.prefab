@@ -157,6 +157,8 @@ MonoBehaviour:
   isBoss: 0
   particle: {fileID: 8935988471082332661, guid: 28f62c69efbfabe4a96d40b00353a47d,
     type: 3}
+  audioSource: {fileID: 3225352197243599802, guid: 785b5688409383e44b8f197385175dd3,
+    type: 3}
   minSize: 1
   maxSize: 1.4
   minMovementSpeed: 0.6
