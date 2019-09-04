@@ -4944,6 +4944,8 @@ MonoBehaviour:
   currentHP: 0
   currentShield: 0
   shieldObject: {fileID: 0}
+  gameOverPrompt: {fileID: 1530614373522368448, guid: 5eeb287a77e9e724e87fba4bf29a8a76,
+    type: 3}
 --- !u!60 &2114560754336359967
 PolygonCollider2D:
   m_ObjectHideFlags: 0

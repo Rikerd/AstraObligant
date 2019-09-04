@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
 
     private bool coroutineStarted;
 
+    private ShipHealth playerHp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,11 +52,18 @@ public class GameManager : MonoBehaviour
         levelPrompt.SetActive(false);
 
         coroutineStarted = false;
+
+        playerHp = GameObject.Find("Ship").GetComponentInChildren<ShipHealth>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (playerHp.isPlayerDead())
+        {
+            return;
+        }
+
         if (currentState == GameState.Setup)
         {
             breakTimer -= Time.deltaTime;

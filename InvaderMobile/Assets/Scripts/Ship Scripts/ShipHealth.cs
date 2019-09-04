@@ -17,6 +17,8 @@ public class ShipHealth : PlayerDamageable
     public float currentShield;
 
     public GameObject shieldObject;
+
+    public GameObject gameOverPrompt;
     
     private HpBar hpUIController;
 
@@ -25,6 +27,10 @@ public class ShipHealth : PlayerDamageable
     private SpriteRenderer sprite;
 
     private Collider2D shipCollidier;
+
+    private ShipMovement shipMovement;
+
+    private ParticleSystem particle;
 
     private bool invincible;
     private float invincibleTimer;
@@ -53,8 +59,14 @@ public class ShipHealth : PlayerDamageable
 
         shipCollidier = GetComponent<Collider2D>();
 
+        shipMovement = GetComponentInParent<ShipMovement>();
+
+        particle = GetComponentInParent<ParticleSystem>();
+
         invincible = false;
         invincibleTimer = setInvincibleTimer;
+
+        gameOverPrompt.SetActive(false);
 
         #region Old Shield Stuff
         //shieldSlider = GameObject.Find("Shield Bar").GetComponent<Slider>();
@@ -131,7 +143,8 @@ public class ShipHealth : PlayerDamageable
 
         if (currentHP <= 0)
         {
-            Destroy(gameObject);
+            gameOverPrompt.SetActive(true);
+            DisablePlayer();
         }
         else
         {
@@ -219,6 +232,20 @@ public class ShipHealth : PlayerDamageable
         maxHP += 3;
 
         StartCoroutine(FullHeal());
+    }
+
+    public bool isPlayerDead()
+    {
+        return (currentHP <= 0);
+    }
+
+    private void DisablePlayer()
+    {
+        sprite.enabled = false;
+        shipCollidier.enabled = false;
+        ShootController.shootController.enabled = false;
+        shipMovement.enabled = false;
+        particle.Stop();
     }
 
     IEnumerator FullHeal()
