@@ -76,6 +76,7 @@ public class ShipHealth : PlayerDamageable
         if (Input.GetKeyDown(KeyCode.P))
         {
             IncreaseMaxHp();
+            ShootController.shootController.ActivateTripleShot();
         }
 
         if (invincible)
