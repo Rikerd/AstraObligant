@@ -29,7 +29,6 @@ public class HpPickUp : PickUpItems
         {
             return false;
         }
-        
         if (hp.getCurrentHp() < hp.getMaxHp())
         {
             isColliding = true;
@@ -39,6 +38,8 @@ public class HpPickUp : PickUpItems
             Destroy(gameObject);
 
             isColliding = true;
+
+            Instantiate(audioSource, transform.position, Quaternion.identity);
 
             return true;
         }

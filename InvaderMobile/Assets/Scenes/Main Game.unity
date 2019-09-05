@@ -1962,6 +1962,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2114560754214942284, guid: 455be896e956ee441a7229c4e3dae67f,
+        type: 3}
+      propertyPath: m_Name
+      value: Ship
+      objectReference: {fileID: 0}
     - target: {fileID: 4821715402154433971, guid: 455be896e956ee441a7229c4e3dae67f,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.maxCurve.m_Curve.Array.size
@@ -2056,11 +2061,6 @@ PrefabInstance:
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2114560754214942284, guid: 455be896e956ee441a7229c4e3dae67f,
-        type: 3}
-      propertyPath: m_Name
-      value: Ship
       objectReference: {fileID: 0}
     - target: {fileID: 2114560754214942283, guid: 455be896e956ee441a7229c4e3dae67f,
         type: 3}

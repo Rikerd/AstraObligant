@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3225352197243599796}
   - component: {fileID: 3225352197243599797}
   m_Layer: 0
-  m_Name: Destroyed Enemy Audio
+  m_Name: Hp Pick Up Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0d78ea03eac89d641befb65d1025c834, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 92e5d14df5637fb40b72958f881480fa, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

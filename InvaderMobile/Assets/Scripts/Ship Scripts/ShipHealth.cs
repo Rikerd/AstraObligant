@@ -35,6 +35,8 @@ public class ShipHealth : PlayerDamageable
     private bool invincible;
     private float invincibleTimer;
 
+    private AudioSource audioSource;
+
     #region Old Shield Stuff
     //private Slider shieldSlider;
 
@@ -67,6 +69,8 @@ public class ShipHealth : PlayerDamageable
         invincibleTimer = setInvincibleTimer;
 
         gameOverPrompt.SetActive(false);
+
+        audioSource = GetComponent<AudioSource>();
 
         #region Old Shield Stuff
         //shieldSlider = GameObject.Find("Shield Bar").GetComponent<Slider>();
@@ -113,6 +117,7 @@ public class ShipHealth : PlayerDamageable
             currentHP -= dmg;
             hpUIController.damageHealth(dmg);
             shake.StartShake();
+            audioSource.Play();
         }
 
         #region Old Shield Stuff

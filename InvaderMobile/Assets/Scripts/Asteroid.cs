@@ -11,6 +11,7 @@ public class Asteroid : Enemy
     [Header("Movement Speed")]
     public float minMovementSpeed = 0.1f;
     public float maxMovementSpeed = 0.3f;
+    public Transform parentObject;
 
     [Header("Rotation Speed")]
     public float minRotationSpeed = 25f;
@@ -41,7 +42,8 @@ public class Asteroid : Enemy
     {
         rotateAsteroid();
 
-        rb2d.MovePosition(transform.position - (Vector3.up * movementSpeed) * Time.fixedDeltaTime);
+        //rb2d.MovePosition(transform.position - (Vector3.up * movementSpeed) * Time.fixedDeltaTime);
+        parentObject.Translate(-(Vector3.up * movementSpeed) * Time.fixedDeltaTime);
     }
 
     private void rotateAsteroid()
@@ -57,7 +59,41 @@ public class Asteroid : Enemy
 
             spawnParticle();
 
-            Destroy(gameObject);
+            Destroy(parentObject.gameObject);
+        }
+    }
+
+    public override void TakeDamage(int dmg)
+    {
+        if (!isDead)
+        {
+            currentHP -= dmg;
+
+            if (currentHP <= 0)
+            {
+                addScore();
+
+                if (GetComponent<DropSystem>() != null)
+                {
+                    GetComponent<DropSystem>().Drop();
+                }
+
+                createScorePrompt();
+                spawnAudio();
+                spawnParticle();
+
+                if (!isBoss)
+                {
+                    Destroy(parentObject.gameObject);
+                }
+                else
+                {
+                    isDead = true;
+                    disableAll();
+                }
+
+                return;
+            }
         }
     }
 }
