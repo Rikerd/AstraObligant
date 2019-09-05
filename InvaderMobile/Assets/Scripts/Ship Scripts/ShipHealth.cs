@@ -19,6 +19,7 @@ public class ShipHealth : PlayerDamageable
     public GameObject shieldObject;
 
     public GameObject gameOverPrompt;
+    public GameObject uiBar;
     
     private HpBar hpUIController;
 
@@ -47,8 +48,8 @@ public class ShipHealth : PlayerDamageable
     //private bool recharging;
     #endregion Old Shield Stuff
 
-    // Start is called before the first frame update
-    void Start()
+    // Start called before the first frame update
+    void Awake()
     {
         currentHP = maxHP;
         currentShield = maxShield;
@@ -69,6 +70,7 @@ public class ShipHealth : PlayerDamageable
         invincibleTimer = setInvincibleTimer;
 
         gameOverPrompt.SetActive(false);
+        uiBar.SetActive(true);
 
         audioSource = GetComponent<AudioSource>();
 
@@ -149,6 +151,7 @@ public class ShipHealth : PlayerDamageable
         if (currentHP <= 0)
         {
             gameOverPrompt.SetActive(true);
+            uiBar.SetActive(false);
             DisablePlayer();
         }
         else

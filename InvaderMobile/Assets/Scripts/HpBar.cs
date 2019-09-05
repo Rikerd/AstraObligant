@@ -8,7 +8,7 @@ public class HpBar : MonoBehaviour {
     private int heartIndexToDisable;
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         hearts = transform.GetComponentsInChildren<Transform>();
 
         heartIndexToDisable = hearts.Length - 1;
