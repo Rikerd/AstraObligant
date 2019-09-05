@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3225352197243599796}
   - component: {fileID: 3225352197243599797}
+  - component: {fileID: 8470192069234443732}
   m_Layer: 0
-  m_Name: Bullet Hit
+  m_Name: Bullet Hit Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,3 +128,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8470192069234443732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3225352197243599802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9877788b63a21488f91d869b13aa70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
