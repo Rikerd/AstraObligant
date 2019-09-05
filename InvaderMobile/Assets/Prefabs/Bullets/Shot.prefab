@@ -119,6 +119,8 @@ MonoBehaviour:
   movementSpeed: 5
   particle: {fileID: 8935988471082332661, guid: 5886a0e85c0725c489c3853bf4c47aa5,
     type: 3}
+  audioSource: {fileID: 3225352197243599802, guid: cce243b83574e7e4faf3dd827f7a5249,
+    type: 3}
 --- !u!60 &7614260083989022411
 PolygonCollider2D:
   m_ObjectHideFlags: 0

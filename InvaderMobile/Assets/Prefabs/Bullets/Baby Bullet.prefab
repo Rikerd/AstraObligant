@@ -157,7 +157,8 @@ MonoBehaviour:
   isBoss: 0
   particle: {fileID: 8935988471082332661, guid: 49791f04b24f550488e22a9dca336b1e,
     type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 3225352197243599802, guid: 986c2eb8d68d83e4a91e8d70889055cd,
+    type: 3}
   hitParticle: {fileID: 8935988471082332661, guid: 883d40765ecd3df48b879a19a2f763bb,
     type: 3}
 --- !u!96 &5756225264564183339

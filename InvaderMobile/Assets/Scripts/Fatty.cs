@@ -76,8 +76,6 @@ public class Fatty : Enemy
 
         transform.localScale = new Vector3(newSize, newSize, 1);
 
-        print(currentHP);   
-
         if (maxHP - currentHP <= maxHpLoss)
         {
             movementSpeed += movementSpeedIncrease;

@@ -1711,7 +1711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
-  setRoundTimer: 100
+  setRoundTimer: 60
   setBreakTimer: 10
   normalEnemySpawners:
   - {fileID: 1423813774}

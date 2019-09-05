@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour {
     public float movementSpeed;
 
     public GameObject particle;
+    public GameObject audioSource;
 
     private Rigidbody2D rb2d;
     private bool hit;
@@ -67,6 +68,7 @@ public class Bullet : MonoBehaviour {
             {
                 collision.GetComponent<Enemy>().TakeDamage(ShootController.shootController.GetDamage());
                 Instantiate(particle, transform.position, Quaternion.identity);
+                Instantiate(audioSource, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
 
