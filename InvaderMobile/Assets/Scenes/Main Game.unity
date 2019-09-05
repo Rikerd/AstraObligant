@@ -1024,7 +1024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &922554410
 Transform:
   m_ObjectHideFlags: 0
@@ -1771,7 +1771,6 @@ MonoBehaviour:
   normalEnemySpawners:
   - {fileID: 1423813774}
   - {fileID: 911189053}
-  - {fileID: 922554409}
   - {fileID: 1903166820}
   - {fileID: 891779461}
   bossEnemies:

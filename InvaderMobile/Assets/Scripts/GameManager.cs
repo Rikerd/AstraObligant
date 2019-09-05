@@ -125,7 +125,11 @@ public class GameManager : MonoBehaviour
         // Disable and clears all previous enemies spawners
         clearBasicEnemySpawners();
 
-        if (currentLevel >= 1 && currentLevel <= 5)
+        if (currentLevel == 1)
+        {
+            currentEnemySpawners.Add(normalEnemySpawners[0]);
+        }
+        else if (currentLevel >= 2 && currentLevel < 4)
         {
             currentEnemySpawners.Add(normalEnemySpawners[0]);
             currentEnemySpawners.Add(normalEnemySpawners[currentLevel]);
@@ -163,16 +167,16 @@ public class GameManager : MonoBehaviour
         {
             currentEnemySpawners.Add(normalEnemySpawners[0]);
 
-            GameObject newObject = Instantiate(bossEnemies[currentLevel - 1], bossEnemies[currentLevel - 1].transform.position, Quaternion.identity);
+            GameObject newObject = Instantiate(bossEnemies[0], bossEnemies[0].transform.position, Quaternion.identity);
 
             currentBosses.Add(newObject);
             currentBossScripts.Add(newObject.GetComponent<Enemy>());
         }
         else if (currentLevel == 2)
         {
-            currentEnemySpawners.Add(normalEnemySpawners[2]);
+            currentEnemySpawners.Add(normalEnemySpawners[0]);
 
-            GameObject newObject = Instantiate(bossEnemies[0], bossEnemies[0].transform.position, Quaternion.identity);
+            GameObject newObject = Instantiate(bossEnemies[1], bossEnemies[1].transform.position, Quaternion.identity);
 
             currentBosses.Add(newObject);
             currentBossScripts.Add(newObject.GetComponent<Enemy>());
@@ -188,16 +192,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            int rand = Random.Range(0, 100);
-
-            if (rand < 50)
-            {
-                currentEnemySpawners.Add(normalEnemySpawners[0]);
-            }
-            else
-            {
-                currentEnemySpawners.Add(normalEnemySpawners[2]);
-            }
+            currentEnemySpawners.Add(normalEnemySpawners[0]);
 
             int spawner = Random.Range(0, bossEnemies.Count);
 
