@@ -18,6 +18,8 @@ public class ShipHealth : PlayerDamageable
 
     public GameObject shieldObject;
 
+    public GameObject playerDeathAudio;
+
     public GameObject gameOverPrompt;
     public GameObject uiBar;
     
@@ -150,6 +152,8 @@ public class ShipHealth : PlayerDamageable
 
         if (currentHP <= 0)
         {
+            Instantiate(playerDeathAudio, transform.position, Quaternion.identity);
+
             gameOverPrompt.SetActive(true);
             uiBar.SetActive(false);
             DisablePlayer();

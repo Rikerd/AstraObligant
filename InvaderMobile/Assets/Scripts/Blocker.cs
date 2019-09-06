@@ -18,6 +18,7 @@ public class Blocker : MonoBehaviour
     private Vector2 verticalMovement;
     private Vector2 horizontalMovement;
 
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,8 @@ public class Blocker : MonoBehaviour
         verticalMoveTimer = setVerticalMoveTimer;
 
         verticalMovement = new Vector2(0, verticalMovementSpeed);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -54,7 +57,6 @@ public class Blocker : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
         rb2d.MovePosition(rb2d.position + (horizontalMovement * Time.fixedDeltaTime) + (verticalMovement * Time.fixedDeltaTime));
     }
 
@@ -67,6 +69,7 @@ public class Blocker : MonoBehaviour
     {
         if (collision.tag == "Player Bullet")
         {
+            audioSource.Play();
             collision.GetComponent<Bullet>().Reflect(reflectSpeed);
         }
     }

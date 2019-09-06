@@ -29,7 +29,6 @@ public class MultiSpawner : MonoBehaviour
     void Start()
     {
         spawnTimer = Random.Range(setMinSpawnTimer, setMaxSpawnTimer);
-        print(spawnTimer);
 
         playerTransform = GameObject.Find("Ship").transform;
 
@@ -73,7 +72,6 @@ public class MultiSpawner : MonoBehaviour
         }
 
         spawnTimer = Random.Range(setMinSpawnTimer, setMaxSpawnTimer);
-        print(spawnTimer);
         spawning = false;
     }
 }

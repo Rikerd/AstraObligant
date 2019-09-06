@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3225352197243599796}
   - component: {fileID: 3225352197243599797}
-  - component: {fileID: 5672336076157634940}
+  - component: {fileID: -8792826717525116577}
   m_Layer: 0
-  m_Name: Destroyed Enemy Audio
+  m_Name: Player Death
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,15 +42,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9ffd2957d7aa0154089c4acd66118005, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ef4980f40b4262946ab662ee253b093e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 140
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -128,7 +128,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5672336076157634940
+--- !u!114 &-8792826717525116577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

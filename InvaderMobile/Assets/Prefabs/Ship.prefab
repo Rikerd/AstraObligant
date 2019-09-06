@@ -4945,8 +4945,11 @@ MonoBehaviour:
   currentHP: 0
   currentShield: 0
   shieldObject: {fileID: 0}
+  playerDeathAudio: {fileID: 3225352197243599802, guid: 7aca78764256ab747b19756e5741672a,
+    type: 3}
   gameOverPrompt: {fileID: 1530614373522368448, guid: 5eeb287a77e9e724e87fba4bf29a8a76,
     type: 3}
+  uiBar: {fileID: 0}
 --- !u!60 &2114560754336359967
 PolygonCollider2D:
   m_ObjectHideFlags: 0
