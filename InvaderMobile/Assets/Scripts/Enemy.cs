@@ -65,13 +65,13 @@ public class Enemy : MonoBehaviour
 
     public void addScore()
     {
-        HighScoreTracker.highScoreTracker.addScore(scoreValue);
+        HighScoreTracker.highScoreTracker.addScore(scoreValue * GameManager.gm.getMultiplier());
     }
 
     public void createScorePrompt()
     {
         GameObject prompt = Instantiate(scorePrompt, transform.position, Quaternion.identity);
-        prompt.GetComponentInChildren<Text>().text = scoreValue.ToString();
+        prompt.GetComponentInChildren<Text>().text = (scoreValue * GameManager.gm.getMultiplier()).ToString();
     }
 
     public void spawnParticle()

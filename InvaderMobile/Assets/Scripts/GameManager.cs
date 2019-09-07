@@ -26,6 +26,15 @@ public class GameManager : MonoBehaviour
     public List<GameObject> currentBosses;
     public List<Enemy> currentBossScripts;
 
+    public float setScoreMultiplierTimer = 7f;
+
+    public Text scoreMultiplierText;
+
+    private int scoreMultiplier = 1;
+    private float scoreMultiplierTimer;
+
+    public static GameManager gm;
+
     private GameObject levelPrompt;
     private Text levelPromptText;
 
@@ -37,6 +46,12 @@ public class GameManager : MonoBehaviour
     private bool coroutineStarted;
 
     private ShipHealth playerHp;
+
+    private void Awake()
+    {
+        gm = this;
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +68,10 @@ public class GameManager : MonoBehaviour
 
         coroutineStarted = false;
 
+        scoreMultiplier = 1;
+
+        scoreMultiplierText.text = scoreMultiplier.ToString() + "x";
+
         playerHp = GameObject.Find("Ship").GetComponentInChildren<ShipHealth>();
     }
 
@@ -62,6 +81,17 @@ public class GameManager : MonoBehaviour
         if (playerHp.isPlayerDead())
         {
             return;
+        }
+
+        if (scoreMultiplierTimer > 0f)
+        {
+            scoreMultiplierTimer -= Time.deltaTime;
+
+            if (scoreMultiplierTimer <= 0f)
+            {
+                scoreMultiplier = 1;
+                scoreMultiplierText.text = scoreMultiplier.ToString() + "x";
+            }
         }
 
         if (currentState == GameState.Setup)
@@ -256,5 +286,24 @@ public class GameManager : MonoBehaviour
         {
             blocker.GetComponent<Blocker>().killKey();
         }
+    }
+
+    public void increaseMultiplier(int scoreMultiply)
+    {
+        scoreMultiplier *= scoreMultiply;
+
+        scoreMultiplierTimer = setScoreMultiplierTimer;
+
+        scoreMultiplierText.text = scoreMultiplier.ToString() + "x";
+    }
+
+    public int getMultiplier()
+    {
+        return scoreMultiplier;
+    }
+
+    public float getCurrentMultiplierTimer()
+    {
+        return scoreMultiplierTimer;
     }
 }

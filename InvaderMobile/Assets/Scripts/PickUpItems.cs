@@ -10,14 +10,23 @@ public abstract class PickUpItems : MonoBehaviour
 
     protected float lastingDuration;
 
+    protected Animator anim;
+
     protected void BaseStart()
     {
         lastingDuration = setLastingDuration;
+
+        anim = GetComponent<Animator>();
     }
 
     public void updateAndCheckTimer()
     {
         lastingDuration -= Time.deltaTime;
+
+        if (lastingDuration <= 4f && !anim.GetBool("fade"))
+        {
+            anim.SetBool("fade", true);
+        }
 
         if (lastingDuration <= 0f)
         {

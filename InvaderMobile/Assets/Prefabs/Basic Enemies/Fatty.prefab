@@ -226,9 +226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852e63e5b6f1d1649ba3d93df2854a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropPercentage: 20
-  dropRates: 64000000
+  dropPercentage: 25
+  dropRates: 460000001e000000
   pickUps:
+  - {fileID: 199996326364547761, guid: 3ee791b64098ce247ac69a5fd64f9207, type: 3}
   - {fileID: 4013291194859457542, guid: 84f7eea2b8f387a40a3532b5a067e811, type: 3}
 --- !u!199 &6967756744016849727
 ParticleSystemRenderer:

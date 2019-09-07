@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MultiplierPickUp : PickUpItems
+public class ScoreMultiplier : PickUpItems
 {
     public int multiplier = 2;
 
@@ -14,14 +14,16 @@ public class MultiplierPickUp : PickUpItems
     // Update is called once per frame
     void Update()
     {
+        updateAndCheckTimer();
     }
 
     public override bool UsePickUp()
     {
-        ShootController.shootController.DamageMultiplier(multiplier);
+        GameManager.gm.increaseMultiplier(multiplier);
 
         Destroy(gameObject);
 
         return true;
     }
+
 }
