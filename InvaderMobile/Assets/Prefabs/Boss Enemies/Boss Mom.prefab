@@ -153,6 +153,9 @@ MonoBehaviour:
   scorePrompt: {fileID: 3068286878566692857, guid: 30382c747f9aa2d4295543afd8bbcd2a,
     type: 3}
   isBoss: 1
+  particle: {fileID: 8935988471082332661, guid: 676d37f41fc5cea4f8826619c208e67f,
+    type: 3}
+  audioSource: {fileID: 0}
   initialMovementTimer: 3
   fowardMovement: 0.5
   babyShip: {fileID: 7583649910215294611, guid: db6a44694d4371f40bc30d59771ded4c,

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8935988471082332662}
   - component: {fileID: 9092435320082020101}
   m_Layer: 0
-  m_Name: Shooter Particle 1
+  m_Name: Shooter Bullet Death Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4785,9 +4785,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 255360515
+  m_SortingLayerID: 1744366155
   m_SortingLayer: 1
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
