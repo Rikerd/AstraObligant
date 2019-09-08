@@ -171,7 +171,8 @@ MonoBehaviour:
   isBoss: 1
   particle: {fileID: 8935988471082332661, guid: 8bf38cf5d19c60e41ad45729a4d62309,
     type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 3225352197243599802, guid: 656f39146606a8148a80646b76139987,
+    type: 3}
   patrolSpeed: 0.3
   bulletSpeed: 1
   minInitialMovementTimer: 1

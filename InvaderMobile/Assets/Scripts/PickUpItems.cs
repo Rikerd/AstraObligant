@@ -6,6 +6,8 @@ public abstract class PickUpItems : MonoBehaviour
 {
     public GameObject audioSource;
 
+    public GameObject particle;
+
     public float setLastingDuration = 4f;
 
     protected float lastingDuration;
