@@ -967,6 +967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highScore: 0
+  highScoreList: 
 --- !u!1 &770720498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2209,7 +2210,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124769025}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63bf1183496dba5419abf608c3576b8c, type: 3}
   m_Name: 
@@ -2529,6 +2530,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eeb287a77e9e724e87fba4bf29a8a76, type: 3}
+--- !u!114 &1530614373519776783 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1530614373403794106, guid: 5eeb287a77e9e724e87fba4bf29a8a76,
+    type: 3}
+  m_PrefabInstance: {fileID: 1530614373519776782}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2114560752910561871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2701,6 +2714,11 @@ PrefabInstance:
       propertyPath: uiBar
       value: 
       objectReference: {fileID: 1856298747}
+    - target: {fileID: 2114560754336359966, guid: 455be896e956ee441a7229c4e3dae67f,
+        type: 3}
+      propertyPath: gameOverScoreText
+      value: 
+      objectReference: {fileID: 1530614373519776783}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 455be896e956ee441a7229c4e3dae67f, type: 3}
 --- !u!1 &2114560752910561872 stripped

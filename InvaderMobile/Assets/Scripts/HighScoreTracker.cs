@@ -9,6 +9,8 @@ public class HighScoreTracker: MonoBehaviour
 
     public static HighScoreTracker highScoreTracker;
 
+    public List<int> highScoreList;
+
     private Text highScoreText;
 
     public void Start()
@@ -16,6 +18,21 @@ public class HighScoreTracker: MonoBehaviour
         highScoreTracker = this;
 
         highScoreText = GetComponent<Text>();
+
+        TopScoreTracker topScoreTracker = ScoreSaveSystem.LoadScoreList();
+
+        if (topScoreTracker != null)
+        {
+            highScoreList = topScoreTracker.listOfScores;
+        } else
+        {
+            highScoreList = new List<int>();
+
+            for (int i = 0; i < 5; i++)
+            {
+                highScoreList.Add(0);
+            }
+        }
     }
 
     public void Update()
@@ -24,6 +41,30 @@ public class HighScoreTracker: MonoBehaviour
     }
 
     private void updateScoreText()
+    {
+        highScoreText.text = getScoreText();
+    }
+
+    public void addScore(int score)
+    {
+        highScore += score;
+    }
+
+    public void SaveScore()
+    {
+        if (highScore > highScoreList[highScoreList.Count - 1])
+        {
+            highScoreList.RemoveAt(highScoreList.Count - 1);
+            highScoreList.Add(highScore);
+
+            highScoreList.Sort();
+            highScoreList.Reverse();
+
+            ScoreSaveSystem.SaveScoreList(this);
+        }
+    }
+
+    public string getScoreText()
     {
         string result = "";
         int length = highScore.ToString().Length;
@@ -34,11 +75,12 @@ public class HighScoreTracker: MonoBehaviour
         }
 
         result += highScore;
-        highScoreText.text = result;
+
+        return result;
     }
 
-    public void addScore(int score)
+    public List<int> getHighScoreList()
     {
-        highScore += score;
+        return highScoreList;
     }
 }

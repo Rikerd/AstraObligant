@@ -22,6 +22,7 @@ public class ShipHealth : PlayerDamageable
 
     public GameObject gameOverPrompt;
     public GameObject uiBar;
+    public Text gameOverScoreText;
     
     private HpBar hpUIController;
 
@@ -39,6 +40,8 @@ public class ShipHealth : PlayerDamageable
     private float invincibleTimer;
 
     private AudioSource audioSource;
+
+    private HighScoreTracker highScoreTracker;
 
     #region Old Shield Stuff
     //private Slider shieldSlider;
@@ -75,6 +78,8 @@ public class ShipHealth : PlayerDamageable
         uiBar.SetActive(true);
 
         audioSource = GetComponent<AudioSource>();
+
+        highScoreTracker = GameObject.Find("Hi-Score").GetComponent<HighScoreTracker>();
 
         #region Old Shield Stuff
         //shieldSlider = GameObject.Find("Shield Bar").GetComponent<Slider>();
@@ -155,7 +160,9 @@ public class ShipHealth : PlayerDamageable
         {
             Instantiate(playerDeathAudio, transform.position, Quaternion.identity);
 
+            highScoreTracker.SaveScore();
             gameOverPrompt.SetActive(true);
+            gameOverScoreText.text = highScoreTracker.getScoreText();
             uiBar.SetActive(false);
             DisablePlayer();
         }
