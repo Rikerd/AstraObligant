@@ -8,12 +8,12 @@ public class TopScoreTracker
 
     public TopScoreTracker (HighScoreTracker scoreTracker)
     {
-        // CHECK IF HIGHER THAN LOWEST SCORE
+        if (scoreTracker.highScore > listOfScores[listOfScores.Count - 1])
+        {
+            listOfScores.RemoveAt(listOfScores.Count - 1);
+            listOfScores.Add(scoreTracker.highScore);
 
-        // REMOVE LOWEST SCORE
-
-        listOfScores.Add(scoreTracker.highScore);
-
-        // SORT LIST
+            listOfScores.Sort();
+        }
     }
 }
