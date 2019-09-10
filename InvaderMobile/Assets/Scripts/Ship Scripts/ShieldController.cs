@@ -9,14 +9,14 @@ public class ShieldController : MonoBehaviour
 
     private float shieldDelayTimer;
 
-    private bool shielding;
+    //private bool shielding;
 
     private ShipHealth hpController;
 
     // Start is called before the first frame update
     void Start()
     {
-        shielding = false;
+        //shielding = false;
 
         hpController = GetComponentInChildren<ShipHealth>();
 

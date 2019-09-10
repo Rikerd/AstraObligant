@@ -125,6 +125,13 @@ public class GameManager : MonoBehaviour
                 }
             }
 
+            foreach (GameObject boss in currentBosses)
+            {
+                Destroy(boss.gameObject);
+            }
+
+            clearBosses();
+
             clearField();
             currentState = GameState.Setup;
         }
@@ -148,9 +155,9 @@ public class GameManager : MonoBehaviour
 
     public void clearBosses()
     {
-        foreach (GameObject currentBoss in currentBosses)
+        foreach (GameObject boss in currentBosses)
         {
-            currentBoss.SetActive(false);
+            Destroy(boss.gameObject);
         }
 
         currentBosses.Clear();
@@ -202,43 +209,46 @@ public class GameManager : MonoBehaviour
         // Disable and clears all previous enemies spawners
         clearBasicEnemySpawners();
 
-        // Disable and clears all previous boss spawners
-        clearBosses();
+        currentEnemySpawners.Add(normalEnemySpawners[0]);
 
         if (currentLevel == 1)
         {
-            currentEnemySpawners.Add(normalEnemySpawners[0]);
-
-            GameObject newObject = Instantiate(bossEnemies[0]);
-
-            currentBosses.Add(newObject);
-            currentBossScripts.Add(newObject.GetComponent<Enemy>());
+            return;
         }
         else if (currentLevel == 2)
         {
-            currentEnemySpawners.Add(normalEnemySpawners[0]);
+            GameObject boss = Instantiate(bossEnemies[0]);
 
-            GameObject newObject = Instantiate(bossEnemies[1]);
-
-            currentBosses.Add(newObject);
-            currentBossScripts.Add(newObject.GetComponent<Enemy>());
+            currentBosses.Add(boss);
+            currentBossScripts.Add(boss.GetComponent<Enemy>());
         }
-        else if (currentLevel == 3 || currentLevel == 4)
+        else if (currentLevel == 3)
         {
-            currentEnemySpawners.Add(normalEnemySpawners[0]);
+            GameObject boss = Instantiate(bossEnemies[1]);
 
-            GameObject newObject = Instantiate(bossEnemies[currentLevel - 2]);
+            currentBosses.Add(boss);
+            currentBossScripts.Add(boss.GetComponent<Enemy>());
+        }
+        else if (currentLevel == 4)
+        {
+            GameObject boss = Instantiate(bossEnemies[3]);
 
-            currentBosses.Add(newObject);
-            currentBossScripts.Add(newObject.GetComponent<Enemy>());
+            currentBosses.Add(boss);
+            currentBossScripts.Add(boss.GetComponent<Enemy>());
         }
         else
         {
-            currentEnemySpawners.Add(normalEnemySpawners[0]);
+            int numOfSpawners = currentLevel / 5;
 
-            int spawner = Random.Range(0, bossEnemies.Count);
+            for (int i = 0; i < numOfSpawners; i++)
+            {
+                int spawner = Random.Range(0, bossEnemies.Count);
 
-            currentEnemySpawners.Add(bossEnemies[spawner]);
+                GameObject boss = Instantiate(bossEnemies[spawner]);
+                
+                currentBosses.Add(boss);
+                currentBossScripts.Add(boss.GetComponent<Enemy>());
+            }
         }
 
         foreach (GameObject currentEnemySpawner in currentEnemySpawners)

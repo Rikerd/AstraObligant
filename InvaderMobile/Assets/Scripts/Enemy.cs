@@ -94,6 +94,9 @@ public class Enemy : MonoBehaviour
     {
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
+
+        if (GetComponent<ParticleSystem>() != null)
+            GetComponent<ParticleSystem>().Stop();
     }
 
     public bool checkDeath()
