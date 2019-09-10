@@ -39,8 +39,6 @@ public class Baby : Enemy
     private Vector2 patrolMovement;
     private Vector2 downMovement;
 
-    private bool movingRight = true;
-
     private bool initialMovement;
 
     private MovementType currentMovement;
@@ -64,6 +62,17 @@ public class Baby : Enemy
 
         patrolMovement = new Vector2(patrolSpeed, 0);
         downMovement = new Vector2(0, patrolSpeed);
+
+        int rand = Random.Range(0, 100);
+
+        if (rand < 50)
+        {
+            currentMovement = MovementType.Right;
+        }
+        else
+        {
+            currentMovement = MovementType.Left;
+        }
 
         initialMovement = true;
     }

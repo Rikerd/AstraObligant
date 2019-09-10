@@ -26,6 +26,8 @@ public class Fatty : Enemy
     private float fattySize;
     private float movementSpeed;
 
+    private ParticleSystem trail;
+
     private SpriteRenderer sprite;
 
     private Rigidbody2D rb2d;
@@ -50,6 +52,8 @@ public class Fatty : Enemy
             movingRight = true;
         else
             movingRight = false;
+
+        trail = GetComponent<ParticleSystem>();
 
         rb2d = GetComponent<Rigidbody2D>();
     }
@@ -124,6 +128,20 @@ public class Fatty : Enemy
             spawnParticle();
 
             Destroy(gameObject);
+        }
+    }
+
+    public void OnBecameInvisible()
+    {
+        if (!isBoss)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            trail.Stop();
+            transform.position = new Vector3(0, 4.5f, 0);
+            trail.Play();
         }
     }
 }

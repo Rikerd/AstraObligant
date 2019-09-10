@@ -48,7 +48,16 @@ public class Shooter : Enemy
 
         initialMovementTimer = Random.Range(minInitialMovementTimer, maxInitialMovementTimer);
 
-        movingRight = true;
+        int rand = Random.Range(0, 100);
+        
+        if (rand < 50)
+        {
+            movingRight = true;
+        }
+        else
+        {
+            movingRight = false;
+        }
 
         max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
         min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
