@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae8aca23934b1934d88754a2a43d8783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
+  maxHP: 4
   damage: 1
   scoreValue: 30
   scorePrompt: {fileID: 3068286878566692857, guid: 30382c747f9aa2d4295543afd8bbcd2a,
@@ -164,14 +164,14 @@ MonoBehaviour:
     type: 3}
   audioSource: {fileID: 3225352197243599802, guid: 785b5688409383e44b8f197385175dd3,
     type: 3}
-  patrolSpeed: 0.6
-  bulletSpeed: 1
+  patrolSpeed: 1
+  bulletSpeed: 1.5
   setDownwardTimer: 1
-  minInitialMovementTimer: 0.5
-  maxInitialMovementTimer: 0.8
+  minInitialMovementTimer: 0.7
+  maxInitialMovementTimer: 0.7
   fowardMovement: 2
   bullet: {fileID: 731126428111183442, guid: 51ac9d2a3f2991d4fb87fbe4813a2fb2, type: 3}
-  setShootTimer: 2
+  setShootTimer: 1
 --- !u!114 &8822381658402295976
 MonoBehaviour:
   m_ObjectHideFlags: 0

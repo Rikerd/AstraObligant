@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TransitionTex:
-        m_Texture: {fileID: 2800000, guid: 857c2e412b9b9214da46ace7f6cd2747, type: 3}
+        m_Texture: {fileID: 2800000, guid: 39c132ab8c68b384e8d4399fdb5a1000, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TransitionTexture:
@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Cutoff: 1
+    - _Cutoff: 0
     - _Distort: 0
     - _Fade: 1
     m_Colors:

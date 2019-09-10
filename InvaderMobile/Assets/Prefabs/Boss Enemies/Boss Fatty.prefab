@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 427a29ea9a33d3c4eb27a2b81df66851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 50
+  maxHP: 80
   damage: 3
   scoreValue: 200
   scorePrompt: {fileID: 3068286878566692857, guid: 30382c747f9aa2d4295543afd8bbcd2a,
@@ -206,12 +206,12 @@ MonoBehaviour:
     type: 3}
   audioSource: {fileID: 3225352197243599802, guid: 656f39146606a8148a80646b76139987,
     type: 3}
-  maxHpLoss: 15
+  maxHpLoss: 20
   minSize: 5
   maxSize: 5
-  minMovementSpeed: 0.03
-  maxMovementSpeed: 0.03
-  movementSpeedIncrease: 0.06
+  minMovementSpeed: 0.1
+  maxMovementSpeed: 0.1
+  movementSpeedIncrease: 0.1
   leftEdge: {fileID: 7634703796031701031}
   rightEdge: {fileID: 2602545553198447792}
 --- !u!114 &6105208203536901359
