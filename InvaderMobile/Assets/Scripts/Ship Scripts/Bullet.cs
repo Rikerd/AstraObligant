@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour {
     public GameObject particle;
     public GameObject audioSource;
 
+    private TrailRenderer trail;
     private Rigidbody2D rb2d;
     private bool hit;
     private bool reflected = false;
@@ -18,6 +19,8 @@ public class Bullet : MonoBehaviour {
 
         hit = false;
         reflected = false;
+
+        trail = GetComponent<TrailRenderer>();
     }
 
     private void FixedUpdate()
@@ -48,6 +51,9 @@ public class Bullet : MonoBehaviour {
         movementSpeed = refSpeed;
 
         GetComponent<SpriteRenderer>().color = Color.red;
+
+        trail.startColor = new Color(255, 0, 0);
+        trail.endColor = new Color(255, 91, 0);
 
         gameObject.tag = "Untagged";
     }
