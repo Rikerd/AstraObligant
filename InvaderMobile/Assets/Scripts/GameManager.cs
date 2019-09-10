@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> bossEnemies;
 
     public List<GameObject> currentEnemySpawners;
+    public List<GameObject> temporarySpawners;
     public List<GameObject> currentBosses;
     public List<Enemy> currentBossScripts;
 
@@ -136,7 +137,13 @@ public class GameManager : MonoBehaviour
             currentEnemySpawner.SetActive(false);
         }
 
+        foreach (GameObject temporarySpawner in temporarySpawners)
+        {
+            Destroy(temporarySpawner);
+        }
+
         currentEnemySpawners.Clear();
+        temporarySpawners.Clear();
     }
 
     public void clearBosses()
@@ -155,33 +162,38 @@ public class GameManager : MonoBehaviour
         // Disable and clears all previous enemies spawners
         clearBasicEnemySpawners();
 
-        if (currentLevel == 1)
+        if (currentLevel <= 4)
         {
-            currentEnemySpawners.Add(normalEnemySpawners[0]);
-        }
-        else if (currentLevel >= 2 && currentLevel < 4)
-        {
-            currentEnemySpawners.Add(normalEnemySpawners[0]);
-            currentEnemySpawners.Add(normalEnemySpawners[currentLevel]);
+            for (int i = 0; i < currentLevel; i++)
+            {
+                currentEnemySpawners.Add(normalEnemySpawners[i]);
+            }
         }
         else
         {
-            int firstSpawner = Random.Range(0, normalEnemySpawners.Count);
-
-            int secondSpawner;
-
-            do
+            for (int i = 0; i < 4; i++)
             {
-                secondSpawner = Random.Range(0, normalEnemySpawners.Count);
-            } while (firstSpawner == secondSpawner);
+                currentEnemySpawners.Add(normalEnemySpawners[i]);
+            }
 
-            currentEnemySpawners.Add(normalEnemySpawners[firstSpawner]);
-            currentEnemySpawners.Add(normalEnemySpawners[secondSpawner]);
+            int additionalSpawners = currentLevel / 5;
+
+            for (int j = 0; j < additionalSpawners; j++)
+            {
+                GameObject spawner = normalEnemySpawners[Random.Range(0, 4)];
+
+                temporarySpawners.Add(Instantiate(spawner));
+            }
         }
 
         foreach (GameObject currentEnemySpawner in currentEnemySpawners)
         {
             currentEnemySpawner.SetActive(true);
+        }
+
+        foreach (GameObject temporarySpawner in temporarySpawners)
+        {
+            temporarySpawner.SetActive(true);
         }
     }
 
@@ -197,7 +209,7 @@ public class GameManager : MonoBehaviour
         {
             currentEnemySpawners.Add(normalEnemySpawners[0]);
 
-            GameObject newObject = Instantiate(bossEnemies[0], bossEnemies[0].transform.position, Quaternion.identity);
+            GameObject newObject = Instantiate(bossEnemies[0]);
 
             currentBosses.Add(newObject);
             currentBossScripts.Add(newObject.GetComponent<Enemy>());
@@ -206,7 +218,7 @@ public class GameManager : MonoBehaviour
         {
             currentEnemySpawners.Add(normalEnemySpawners[0]);
 
-            GameObject newObject = Instantiate(bossEnemies[1], bossEnemies[1].transform.position, Quaternion.identity);
+            GameObject newObject = Instantiate(bossEnemies[1]);
 
             currentBosses.Add(newObject);
             currentBossScripts.Add(newObject.GetComponent<Enemy>());
@@ -215,7 +227,7 @@ public class GameManager : MonoBehaviour
         {
             currentEnemySpawners.Add(normalEnemySpawners[0]);
 
-            GameObject newObject = Instantiate(bossEnemies[currentLevel - 2], bossEnemies[currentLevel - 2].transform.position, Quaternion.identity);
+            GameObject newObject = Instantiate(bossEnemies[currentLevel - 2]);
 
             currentBosses.Add(newObject);
             currentBossScripts.Add(newObject.GetComponent<Enemy>());

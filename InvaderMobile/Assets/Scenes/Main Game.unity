@@ -3336,6 +3336,7 @@ MonoBehaviour:
   - {fileID: 6772836702217485036, guid: 2ac468da767a9a24db5e3ec5f06a41dd, type: 3}
   - {fileID: 6208815737952159125, guid: 962b68ff2c6e1a5449b3bde4a52bae66, type: 3}
   currentEnemySpawners: []
+  temporarySpawners: []
   currentBosses: []
   currentBossScripts: []
   setScoreMultiplierTimer: 7
