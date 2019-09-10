@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     public List<GameObject> currentBosses;
     public List<Enemy> currentBossScripts;
 
+    public GameObject blockerSpawners;
+
     public float setScoreMultiplierTimer = 7f;
 
     public Text scoreMultiplierText;
@@ -47,6 +49,9 @@ public class GameManager : MonoBehaviour
     private bool coroutineStarted;
 
     private ShipHealth playerHp;
+
+    private bool dropped;
+    private BossDropSystem bossDropSystem;
 
     private void Awake()
     {
@@ -74,6 +79,9 @@ public class GameManager : MonoBehaviour
         scoreMultiplierText.text = scoreMultiplier.ToString() + "x";
 
         playerHp = GameObject.Find("Ship").GetComponentInChildren<ShipHealth>();
+
+        dropped = false;
+        bossDropSystem = GetComponent<BossDropSystem>();
     }
 
     // Update is called once per frame
@@ -130,9 +138,18 @@ public class GameManager : MonoBehaviour
                 Destroy(boss.gameObject);
             }
 
+            clearBasicEnemySpawners();
+
             clearBosses();
 
             clearField();
+
+            determineDrop();
+
+            breakTimer = setBreakTimer;
+
+            blockerSpawners.SetActive(false);
+
             currentState = GameState.Setup;
         }
     }
@@ -231,7 +248,7 @@ public class GameManager : MonoBehaviour
         }
         else if (currentLevel == 4)
         {
-            GameObject boss = Instantiate(bossEnemies[3]);
+            GameObject boss = Instantiate(bossEnemies[2]);
 
             currentBosses.Add(boss);
             currentBossScripts.Add(boss.GetComponent<Enemy>());
@@ -290,6 +307,7 @@ public class GameManager : MonoBehaviour
         roundTimer = setRoundTimer;
         currentState = GameState.Round;
         enemySpawnerPicker();
+        blockerSpawners.SetActive(true);
 
         coroutineStarted = false;
     }
@@ -327,5 +345,36 @@ public class GameManager : MonoBehaviour
     public float getCurrentMultiplierTimer()
     {
         return scoreMultiplierTimer;
+    }
+
+    public void determineDrop()
+    {
+        if (currentLevel == 1)
+        {
+            return;
+        }
+
+        if (currentLevel % 5 == 0 && !dropped)
+        {
+            bossDropSystem.ChooseDrop();
+            bossDropSystem.Drop(Vector3.zero);
+        } 
+        else if (!dropped)
+        {
+            int rand = Random.Range(0, 100);
+
+            if (rand < 10)
+            {
+                dropped = true;
+
+                bossDropSystem.ChooseDrop();
+                bossDropSystem.Drop(Vector3.zero);
+            }
+        }
+        else
+        {
+            bossDropSystem.DefaultDrop(Vector3.zero);
+        }
+        
     }
 }

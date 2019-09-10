@@ -3304,6 +3304,7 @@ GameObject:
   - component: {fileID: 2124769027}
   - component: {fileID: 2124769026}
   - component: {fileID: 2124769028}
+  - component: {fileID: 2124769029}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3323,9 +3324,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63bf1183496dba5419abf608c3576b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 0
+  currentLevel: 1
   setRoundTimer: 60
-  setBreakTimer: 10
+  setBreakTimer: 5
   normalEnemySpawners:
   - {fileID: 1423813774}
   - {fileID: 911189053}
@@ -3339,6 +3340,7 @@ MonoBehaviour:
   temporarySpawners: []
   currentBosses: []
   currentBossScripts: []
+  blockerSpawners: {fileID: 922554409}
   setScoreMultiplierTimer: 7
   scoreMultiplierText: {fileID: 1425148286}
 --- !u!4 &2124769027
@@ -3451,6 +3453,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2124769029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124769025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e65c7f869da93e4bb45cb56d8b2d6cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropRates: 64000000640000003c000000190000000f000000
+  pickUps:
+  - {fileID: 6162063003678628697, guid: b2a9652daeb04994ba50eccc19792a4e, type: 3}
+  - {fileID: 6162063003678628697, guid: b2a9652daeb04994ba50eccc19792a4e, type: 3}
+  - {fileID: 7036350777379406373, guid: 842333fffa2f34549ba2040d542f4246, type: 3}
+  - {fileID: 199996326364547761, guid: b9874a64d41f1c143b5d012e2fdfb7c1, type: 3}
+  - {fileID: 199996326364547761, guid: 3ee791b64098ce247ac69a5fd64f9207, type: 3}
+  defaultDrop: {fileID: 4013291194859457542, guid: 84f7eea2b8f387a40a3532b5a067e811,
+    type: 3}
 --- !u!224 &305760750740937836
 RectTransform:
   m_ObjectHideFlags: 0

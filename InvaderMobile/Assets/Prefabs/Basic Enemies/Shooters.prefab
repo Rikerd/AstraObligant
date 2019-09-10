@@ -179,7 +179,7 @@ MonoBehaviour:
   maxInitialMovementTimer: 1
   fowardMovement: 4
   bullet: {fileID: 731126428111183442, guid: 0841fa4c5719fde4da569197cf0cf129, type: 3}
-  setShootTimer: 1.1
+  setShootTimer: 1.3
   leftEdge: {fileID: 5402806327670486663}
   rightEdge: {fileID: 6504765083755878691}
   barrels:
