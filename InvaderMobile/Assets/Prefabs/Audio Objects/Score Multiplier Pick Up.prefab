@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3225352197243599797}
   - component: {fileID: 9190257861857966574}
   m_Layer: 0
-  m_Name: Score Multiplier Audio
+  m_Name: Score Multiplier Pick Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 893f49b0f7f93fa419f3d608559653a3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6700c82eba547674d8263113b4a32112, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

@@ -148,4 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52d328a14f917149bbd228e6b427c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 3225352197243599802, guid: c363ce87868bbed469f80779b7d4f5ea,
+    type: 3}
+  particle: {fileID: 8935988471082332661, guid: 68978176d1ce04f4d9f811e40d58ea3b,
+    type: 3}
   setLastingDuration: 0

@@ -133,10 +133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb7ddad8d573e8b40a73338adcf6fab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 3225352197243599802, guid: 55b563313d5fe6e42a73da2ba3ab7ddb,
+  audioSource: {fileID: 3225352197243599802, guid: 7e339ab40125056429b077dca45e6d4e,
     type: 3}
-  particle: {fileID: 0}
+  particle: {fileID: 8935988471082332661, guid: 945750c97082eb143a014c2bdc9b96e3,
+    type: 3}
   setLastingDuration: 10
+  permMultiplier: 0
   multiplier: 2
 --- !u!95 &8261863468788177454
 Animator:

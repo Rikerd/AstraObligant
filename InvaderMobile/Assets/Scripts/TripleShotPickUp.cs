@@ -20,6 +20,12 @@ public class TripleShotPickUp : PickUpItems
 
         Destroy(gameObject);
 
+        GameManager.gm.StartPrompt("Triple Shot");
+
+        Instantiate(audioSource, transform.position, Quaternion.identity);
+
+        Instantiate(particle, transform.position, Quaternion.identity);
+
         return true;
     }
 }

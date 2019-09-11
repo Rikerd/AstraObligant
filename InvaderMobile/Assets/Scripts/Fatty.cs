@@ -76,7 +76,7 @@ public class Fatty : Enemy
         if (newSize < 1f)
         {
             newSize = 1;
-        }        
+        }
 
         transform.localScale = new Vector3(newSize, newSize, 1);
 

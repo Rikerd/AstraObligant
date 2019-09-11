@@ -22,6 +22,12 @@ public class DmgMultiplierPickUp : PickUpItems
 
         Destroy(gameObject);
 
+        GameManager.gm.StartPrompt("Damage");
+
+        Instantiate(audioSource, transform.position, Quaternion.identity);
+
+        Instantiate(particle, transform.position, Quaternion.identity);
+
         return true;
     }
 

@@ -20,6 +20,12 @@ public class MaxHealthUpPickUp : PickUpItems
 
         Destroy(gameObject);
 
+        GameManager.gm.StartPrompt("Health");
+
+        Instantiate(audioSource, transform.position, Quaternion.identity);
+
+        Instantiate(particle, transform.position, Quaternion.identity);
+
         return true;
     }
 }

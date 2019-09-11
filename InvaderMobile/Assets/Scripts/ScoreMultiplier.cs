@@ -24,11 +24,17 @@ public class ScoreMultiplier : PickUpItems
         if (permMultiplier)
         {
             GameManager.gm.increaseBaseMultiplier(multiplier);
+
+            GameManager.gm.StartPrompt("Score");
         }
         else
         {
             GameManager.gm.tempIncreaseMultiplier(multiplier);
         }
+
+        Instantiate(audioSource, transform.position, Quaternion.identity);
+
+        Instantiate(particle, transform.position, Quaternion.identity);
 
         Destroy(gameObject);
 

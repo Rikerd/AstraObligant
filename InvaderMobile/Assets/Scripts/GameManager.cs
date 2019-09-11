@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
     private GameObject levelPrompt;
     private Text levelPromptText;
 
+    private GameObject damageUpPrompt;
+    private GameObject tripleShotPrompt;
+    private GameObject scoreUpPrompt;
+    private GameObject healthUpPrompt;
+
     private float roundTimer;
     private float breakTimer;
 
@@ -72,6 +77,18 @@ public class GameManager : MonoBehaviour
         levelPrompt = GameObject.Find("Level Prompt");
         levelPromptText = levelPrompt.GetComponent<Text>();
         levelPrompt.SetActive(false);
+
+        damageUpPrompt = GameObject.Find("Damage Up Prompt");
+        damageUpPrompt.SetActive(false);
+
+        tripleShotPrompt = GameObject.Find("Triple Shot Prompt");
+        tripleShotPrompt.SetActive(false);
+
+        scoreUpPrompt = GameObject.Find("Score Up Prompt");
+        scoreUpPrompt.SetActive(false);
+
+        healthUpPrompt = GameObject.Find("Health Up Prompt");
+        healthUpPrompt.SetActive(false);
 
         coroutineStarted = false;
 
@@ -386,5 +403,39 @@ public class GameManager : MonoBehaviour
             bossDropSystem.DefaultDrop(Vector3.zero);
         }
         
+    }
+
+    public void StartPrompt(string promptType)
+    {
+        if (levelPrompt.activeSelf)
+        {
+            return;
+        }
+
+        if (promptType == "Damage")
+        {
+            StartCoroutine(ShowPrompt(damageUpPrompt));
+        }
+        else if (promptType == "Health")
+        {
+            StartCoroutine(ShowPrompt(healthUpPrompt));
+        }
+        else if (promptType == "Score")
+        {
+            StartCoroutine(ShowPrompt(scoreUpPrompt));
+        }
+        else if (promptType == "Triple Shot")
+        {
+            StartCoroutine(ShowPrompt(tripleShotPrompt));
+        }
+    }
+
+    IEnumerator ShowPrompt(GameObject prompt)
+    {
+        prompt.SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        prompt.SetActive(false);
     }
 }

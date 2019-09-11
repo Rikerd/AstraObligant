@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BattleTransitions
+  m_Name: FlashAnim
   m_Shader: {fileID: 4800000, guid: 0f3188bd269d13f4f9340af5bc2bef5e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -34,6 +34,6 @@ Material:
     m_Floats:
     - _Cutoff: 0
     - _Distort: 0
-    - _Fade: 1
+    - _Fade: 0
     m_Colors:
-    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
