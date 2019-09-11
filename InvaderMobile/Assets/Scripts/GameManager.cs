@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     private int scoreMultiplier = 1;
     private float scoreMultiplierTimer;
+    private int baseMultiplier = 1;
 
     public static GameManager gm;
 
@@ -78,6 +79,8 @@ public class GameManager : MonoBehaviour
 
         scoreMultiplierText.text = scoreMultiplier.ToString() + "x";
 
+        baseMultiplier = 1;
+
         playerHp = GameObject.Find("Ship").GetComponentInChildren<ShipHealth>();
 
         dropped = false;
@@ -98,7 +101,7 @@ public class GameManager : MonoBehaviour
 
             if (scoreMultiplierTimer <= 0f)
             {
-                scoreMultiplier = 1;
+                scoreMultiplier = baseMultiplier;
                 scoreMultiplierText.text = scoreMultiplier.ToString() + "x";
             }
         }
@@ -328,7 +331,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void increaseMultiplier(int scoreMultiply)
+    public void increaseBaseMultiplier(int scoreMultiply)
+    {
+        scoreMultiplier *= scoreMultiply;
+        baseMultiplier *= scoreMultiply;
+        scoreMultiplierText.text = scoreMultiplier.ToString() + "x";
+    }
+
+    public void tempIncreaseMultiplier(int scoreMultiply)
     {
         scoreMultiplier *= scoreMultiply;
 

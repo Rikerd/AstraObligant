@@ -152,7 +152,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 3225352197243599802, guid: 55b563313d5fe6e42a73da2ba3ab7ddb,
     type: 3}
+  particle: {fileID: 0}
   setLastingDuration: 10
+  permMultiplier: 1
   multiplier: 2
 --- !u!95 &8261863468788177454
 Animator:

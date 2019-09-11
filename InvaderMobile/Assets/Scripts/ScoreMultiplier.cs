@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ScoreMultiplier : PickUpItems
 {
+    public bool permMultiplier;
+
     public int multiplier = 2;
 
     public void Start()
@@ -19,7 +21,14 @@ public class ScoreMultiplier : PickUpItems
 
     public override bool UsePickUp()
     {
-        GameManager.gm.increaseMultiplier(multiplier);
+        if (permMultiplier)
+        {
+            GameManager.gm.increaseBaseMultiplier(multiplier);
+        }
+        else
+        {
+            GameManager.gm.tempIncreaseMultiplier(multiplier);
+        }
 
         Destroy(gameObject);
 
