@@ -8,6 +8,7 @@ TagManager:
   - Player Bullet
   - Pick Up
   - Blocker
+  - Reflect Bullet
   layers:
   - Default
   - TransparentFX
@@ -44,6 +45,45 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Boss Baby
+    uniqueID: 2036610475
+    locked: 0
+  - name: Boss Mom
+    uniqueID: 1201831763
+    locked: 0
+  - name: Boss Fatty
+    uniqueID: 1421649493
+    locked: 0
+  - name: Boss Shooter
+    uniqueID: 1280239851
+    locked: 0
+  - name: Baby
+    uniqueID: 754819311
+    locked: 0
+  - name: Mom
+    uniqueID: 715890431
+    locked: 0
+  - name: Fatty
+    uniqueID: 2925654373
+    locked: 0
+  - name: Asteroid
+    uniqueID: 4077265161
+    locked: 0
+  - name: Shooter
+    uniqueID: 469433733
+    locked: 0
+  - name: Bullet Trail
+    uniqueID: 4067032453
+    locked: 0
+  - name: Bullet
+    uniqueID: 2090466589
+    locked: 0
+  - name: Blocker
+    uniqueID: 1207039915
+    locked: 0
+  - name: PickUp
+    uniqueID: 2675574551
     locked: 0
   - name: Particles
     uniqueID: 1744366155

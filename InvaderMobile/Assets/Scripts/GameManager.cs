@@ -342,15 +342,21 @@ public class GameManager : MonoBehaviour
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject[] blockers = GameObject.FindGameObjectsWithTag("Blocker");
+        GameObject[] reflectedBullets = GameObject.FindGameObjectsWithTag("Reflect Bullet");
 
         foreach (GameObject enemy in enemies)
         {
             enemy.GetComponent<Enemy>().killKey();
         }
 
-        foreach(GameObject blocker in blockers)
+        foreach (GameObject blocker in blockers)
         {
             blocker.GetComponent<Blocker>().killKey();
+        }
+
+        foreach (GameObject reflectedBullet in reflectedBullets)
+        {
+            reflectedBullet.GetComponent<Bullet>().killKey();
         }
     }
 

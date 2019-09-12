@@ -55,7 +55,7 @@ public class Bullet : MonoBehaviour {
         trail.startColor = new Color(255, 0, 0);
         trail.endColor = new Color(255, 91, 0);
 
-        gameObject.tag = "Untagged";
+        gameObject.tag = "Reflect Bullet";
     }
 
     public void OnBecameInvisible()
@@ -107,5 +107,13 @@ public class Bullet : MonoBehaviour {
 
             Destroy(gameObject, 0.5f);
         }*/
+    }
+
+    public void killKey()
+    {
+        if (reflected)
+        {
+            Destroy(gameObject);
+        }
     }
 }
