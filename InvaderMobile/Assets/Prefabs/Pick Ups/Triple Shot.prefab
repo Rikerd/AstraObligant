@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7036350777379406394}
   - component: {fileID: 7036350777379406372}
   - component: {fileID: 7036350777379406369}
+  - component: {fileID: 7829083695597484257}
   m_Layer: 0
   m_Name: Triple Shot
   m_TagString: Pick Up
@@ -153,3 +154,22 @@ MonoBehaviour:
   particle: {fileID: 8935988471082332661, guid: 68978176d1ce04f4d9f811e40d58ea3b,
     type: 3}
   setLastingDuration: 0
+--- !u!95 &7829083695597484257
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7036350777379406373}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1ae057acc0cc14444a6b722ee4a6a60a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

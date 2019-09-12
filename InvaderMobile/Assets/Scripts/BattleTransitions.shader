@@ -7,7 +7,7 @@ Shader "Hidden/BattleTransitions"
 		_MainTex("Texture", 2D) = "white" {}
 		_TransitionTex("Transition Texture", 2D) = "white" {}
 		_Color("Screen Color", Color) = (1,1,1,1)
-		_Cutoff("Cutoff", Range(0, 1)) = 0
+		_d("Cutoff", Range(0, 1)) = 0
 		[MaterialToggle] _Distort("Distort", Float) = 0
 		_Fade("Fade", Range(0, 1)) = 0
 	}

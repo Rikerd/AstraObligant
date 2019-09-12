@@ -25,6 +25,14 @@ public class Enemy : MonoBehaviour
 
     public virtual void Start()
     {
+        int multiplier = GameManager.gm.getEnemyHpMultiplier();
+
+        if (multiplier != 0)
+        {
+            maxHP *= 2 * multiplier;
+        }
+        
+
         currentHP = maxHP;
     }
 

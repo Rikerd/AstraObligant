@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class TransitionController : MonoBehaviour
 {
+    public enum TransistionStatus
+    {
+        Fade,
+        Unfade,
+        Flash,
+        Nothing
+    }
+
     public Material transMat;
+    public Material flashMat;
 
     public Texture2D currentTexture;
 
@@ -12,81 +21,128 @@ public class TransitionController : MonoBehaviour
 
     public float fadeTime = 1f;
 
-    [SerializeField]
-    private bool fade = false;
-    [SerializeField]
-    private bool unfade = false;
     private float timer = 0;
+
+    private Material currentMat;
+
+    public TransistionStatus currentStatus;
+
+    private bool flash;
 
 
     void Start()
     {
         timer = 0;
-        transMat.SetFloat("_Cutoff", 1f);
-        unfade = true;
+
+        currentMat = transMat;
+
+        currentMat.SetFloat("_Cutoff", 1f);
+
+        currentStatus = TransistionStatus.Unfade;
     }
 
     public void Update()
     {
-        if (fade && unfade)
-            fade = unfade = false;
-
-        transMat.SetTexture("_TransitionTex", currentTexture);
-        if (fade && transMat.GetFloat("_Cutoff") <= 0.9999)
+        if (currentStatus == TransistionStatus.Fade)
         {
             timer += Time.unscaledDeltaTime / fadeTime;
             audioSource.volume = Mathf.Lerp(0.5f, 0f, timer);
-            transMat.SetFloat("_Cutoff", Mathf.Lerp(0, 1, timer));
-        }
-        else if (!unfade)
-        {
-            fade = false;
-            timer = 0f;
+            currentMat.SetFloat("_Cutoff", Mathf.Lerp(0, 1, timer));
+
+            if (currentMat.GetFloat("_Cutoff") >= 1)
+            {
+                currentStatus = TransistionStatus.Nothing;
+            }
         }
 
-        if (unfade && transMat.GetFloat("_Cutoff") >= 0.001)
+        if (currentStatus == TransistionStatus.Unfade)
         {
             timer += Time.unscaledDeltaTime / fadeTime;
             audioSource.volume = Mathf.Lerp(0f, 0.5f, timer);
-            transMat.SetFloat("_Cutoff", Mathf.Lerp(1, 0, timer));
+            currentMat.SetFloat("_Cutoff", Mathf.Lerp(1, 0, timer));
+
+            if (currentMat.GetFloat("_Cutoff") <= 0)
+            {
+                currentStatus = TransistionStatus.Nothing;
+            }
         }
-        else if (!fade)
+
+        if (currentStatus == TransistionStatus.Flash)
         {
-            unfade = false;
-            timer = 0f;
+            timer += Time.unscaledDeltaTime / (fadeTime / 2);
+
+            if (flash)
+            {
+                currentMat.SetFloat("_Fade", Mathf.Lerp(0, 1, timer));
+            }
+            else
+            {
+                currentMat.SetFloat("_Fade", Mathf.Lerp(1, 0, timer));
+            }
+
+            if (flash && currentMat.GetFloat("_Fade") >= 1)
+            {
+                flash = false;
+                timer = 0;
+            }
+
+            if (!flash && currentMat.GetFloat("_Fade") <= 0)
+            {
+                currentStatus = TransistionStatus.Nothing;
+            }
         }
     }
 
     void OnRenderImage(RenderTexture src, RenderTexture dst)
     {
-        if (transMat != null)
-            Graphics.Blit(src, dst, transMat);
+        if (currentMat != null)
+            Graphics.Blit(src, dst, currentMat);
     }
 
     public void fadeToBlack()
     {
+        currentMat = transMat;
         transMat.SetFloat("_Cutoff", 0f);
-        fade = true;
+        currentStatus = TransistionStatus.Fade;
+        timer = 0f;
     }
 
     public void fadeToBlack(Texture2D texture)
     {
-        currentTexture = texture;
+        currentMat = transMat;
+        currentMat.SetTexture("_TransitionTex", currentTexture);
         transMat.SetFloat("_Cutoff", 0f);
-        fade = true;
+        currentStatus = TransistionStatus.Fade;
+        timer = 0f;
+
     }
 
     public void unfadeFromBlack()
     {
+        currentMat = transMat;
         transMat.SetFloat("_Cutoff", 1f);
-        unfade = true;
+        currentStatus = TransistionStatus.Unfade;
+        timer = 0f;
     }
 
     public void unfadeFromBlack(Texture2D texture)
     {
-        currentTexture = texture;
+        currentMat = transMat;
+        currentMat.SetTexture("_TransitionTex", texture);
         transMat.SetFloat("_Cutoff", 1f);
-        unfade = true;
+        currentStatus = TransistionStatus.Unfade;
+        timer = 0f;
+    }
+
+    public void startFlash()
+    {
+        currentMat = flashMat;
+        flashMat.SetFloat("_Cutoff", 1f);
+        flashMat.SetFloat("_Fade", 0f);
+        currentStatus = TransistionStatus.Flash;
+        timer = 0f;
+
+        flash = true;
     }
 
     public float getFadeTime()

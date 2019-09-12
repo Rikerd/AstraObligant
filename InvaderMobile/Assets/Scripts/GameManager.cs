@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour
     private bool dropped;
     private BossDropSystem bossDropSystem;
 
+    private TransitionController transitionController;
+
     private void Awake()
     {
         gm = this;
@@ -102,6 +104,8 @@ public class GameManager : MonoBehaviour
 
         dropped = false;
         bossDropSystem = GetComponent<BossDropSystem>();
+
+        transitionController = Camera.main.GetComponent<TransitionController>();
     }
 
     // Update is called once per frame
@@ -334,6 +338,8 @@ public class GameManager : MonoBehaviour
 
     public void clearField()
     {
+        transitionController.startFlash();
+
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject[] blockers = GameObject.FindGameObjectsWithTag("Blocker");
 
@@ -437,5 +443,19 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         prompt.SetActive(false);
+    }
+
+    public int getEnemyHpMultiplier()
+    {
+        int multiplier = (currentLevel / 5) - 2;
+
+        if (multiplier < 0)
+        {
+            return 0;
+        }
+        else
+        {
+            return multiplier;
+        }
     }
 }

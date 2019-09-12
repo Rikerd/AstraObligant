@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 199996326364547758}
   - component: {fileID: 199996326364547760}
   - component: {fileID: 3731144292512722908}
+  - component: {fileID: 83749284532578673}
   m_Layer: 0
   m_Name: Damage Multiplier
   m_TagString: Pick Up
@@ -156,6 +157,25 @@ MonoBehaviour:
     type: 3}
   setLastingDuration: 4
   multiplier: 2
+--- !u!95 &83749284532578673
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199996326364547761}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1056da851f843f044b53e63b034ee879, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &640376980643173079
 GameObject:
   m_ObjectHideFlags: 0

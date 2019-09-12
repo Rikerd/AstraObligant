@@ -877,12 +877,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dcef4832f6ee3049b8b7be0fa784660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transMat: {fileID: 2100000, guid: c55df680bdd5ae74d88914be3f62d482, type: 2}
+  transMat: {fileID: 2100000, guid: 896f9e3c10dec5f4ba23d74e8ab35abc, type: 2}
+  flashMat: {fileID: 2100000, guid: c55df680bdd5ae74d88914be3f62d482, type: 2}
   currentTexture: {fileID: 2800000, guid: 39c132ab8c68b384e8d4399fdb5a1000, type: 3}
   audioSource: {fileID: 2124769028}
   fadeTime: 1
-  fade: 0
-  unfade: 0
+  currentStatus: 0
 --- !u!1001 &562681119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3725,7 +3725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
-  setRoundTimer: 60
+  setRoundTimer: 50
   setBreakTimer: 5
   normalEnemySpawners:
   - {fileID: 1423813774}
