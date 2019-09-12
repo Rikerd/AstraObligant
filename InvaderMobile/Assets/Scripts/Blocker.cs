@@ -10,6 +10,8 @@ public class Blocker : MonoBehaviour
 
     public float reflectSpeed = 2f;
 
+    public GameObject particle;
+
     private float verticalMoveTimer;
 
     private Rigidbody2D rb2d;
@@ -81,6 +83,8 @@ public class Blocker : MonoBehaviour
 
     public void killKey()
     {
+        Instantiate(particle, transform.position, Quaternion.identity);
+
         Destroy(gameObject);
     }
 }

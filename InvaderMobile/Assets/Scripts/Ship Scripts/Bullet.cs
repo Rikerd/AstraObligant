@@ -8,6 +8,9 @@ public class Bullet : MonoBehaviour {
     public GameObject particle;
     public GameObject audioSource;
 
+    public GameObject reflectParticle;
+    public GameObject reflectDeathParticle;
+
     private TrailRenderer trail;
     private Rigidbody2D rb2d;
     private bool hit;
@@ -92,27 +95,19 @@ public class Bullet : MonoBehaviour {
         {
             // ADD PARTICLE FOR REFLECTED
             collision.GetComponent<PlayerDamageable>().TakeDamage(ShootController.shootController.GetDamage());
+
+            Instantiate(reflectParticle, transform.position, Quaternion.identity);
+
             Destroy(gameObject);
         }
-
-        /*
-        if (collision.tag == "Boss")
-        {
-            hit = true;
-            collision.GetComponentInParent<BossController>().takeDamage(damage);
-            GetComponent<PolygonCollider2D>().enabled = false;
-            GetComponent<SpriteRenderer>().enabled = false;
-
-            GetComponent<ParticleSystem>().Play();
-
-            Destroy(gameObject, 0.5f);
-        }*/
     }
 
     public void killKey()
     {
         if (reflected)
         {
+            Instantiate(reflectDeathParticle, transform.position, Quaternion.identity);
+
             Destroy(gameObject);
         }
     }

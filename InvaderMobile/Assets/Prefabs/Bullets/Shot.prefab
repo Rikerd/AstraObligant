@@ -121,6 +121,10 @@ MonoBehaviour:
     type: 3}
   audioSource: {fileID: 3225352197243599802, guid: cce243b83574e7e4faf3dd827f7a5249,
     type: 3}
+  reflectParticle: {fileID: 8935988471082332661, guid: 0901e24654ec92e4eafe3fb65e0a27e9,
+    type: 3}
+  reflectDeathParticle: {fileID: 8935988471082332661, guid: 73e2c1f22bcb47c44bddf799876f284c,
+    type: 3}
 --- !u!60 &7614260083989022411
 PolygonCollider2D:
   m_ObjectHideFlags: 0
