@@ -107,8 +107,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 6090735471497782938, guid: 1dcf71bb2f517084fa71799b731c07df,
     type: 3}
-  spawnAmount: 3
-  spawnTimeSeparation: 1.2
+  spawnAmount: 2
+  spawnTimeSeparation: 0.7
   position: 1
   setMinSpawnTimer: 8
   setMaxSpawnTimer: 20

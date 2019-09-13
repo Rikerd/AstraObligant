@@ -71,8 +71,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9686c77e7c94f0489be6ff47403c93f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5.5
-  tiltLimit: 0.1
+  movementSpeed: 5
+  tiltLimit: 0.07
 --- !u!114 &2114560754214942280
 MonoBehaviour:
   m_ObjectHideFlags: 0

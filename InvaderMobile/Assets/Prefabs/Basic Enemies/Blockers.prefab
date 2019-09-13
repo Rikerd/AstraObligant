@@ -142,10 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ebbf6e90da90742aa15cf5c4261770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalMovementSpeed: 0.7
+  horizontalMovementSpeed: 1.2
   verticalMovementSpeed: 0.5
   setVerticalMoveTimer: 1
-  reflectSpeed: 2
+  reflectSpeed: 2.3
   particle: {fileID: 8935988471082332661, guid: d237b38862b6f4c42b2df58abc7609b7,
     type: 3}
 --- !u!82 &1174189318743292052

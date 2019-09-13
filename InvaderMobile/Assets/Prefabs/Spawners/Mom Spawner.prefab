@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2417001344756100901}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8, y: 0, z: 0}
+  m_LocalPosition: {x: 1.6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3357322279016185272}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7392486086558759883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8, y: 0, z: 0}
+  m_LocalPosition: {x: -1.6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3357322279016185272}
@@ -108,7 +108,6 @@ MonoBehaviour:
   spawnObject: {fileID: 1167679147276845385, guid: 541cd9c1f680e994480af4db88bae1af,
     type: 3}
   spawnOnPlayer: 0
-  spawnOnSpot: 0
   setMinSpawnTimer: 4
   setMaxSpawnTimer: 8
   minPosition: {fileID: 9000562218229620449}
