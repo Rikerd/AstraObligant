@@ -74,4 +74,11 @@ public class MultiSpawner : MonoBehaviour
         spawnTimer = Random.Range(setMinSpawnTimer, setMaxSpawnTimer);
         spawning = false;
     }
+
+    public void resetSpawn()
+    {
+        spawning = false;
+
+        spawnTimer = Random.Range(setMinSpawnTimer, setMaxSpawnTimer);
+    }
 }

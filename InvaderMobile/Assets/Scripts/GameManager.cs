@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public int currentLevel = 0;
 
+    public float setFirstRoundTimer = 30f;
     public float setRoundTimer = 300f;
 
     public float setBreakTimer = 10f;
@@ -38,6 +39,8 @@ public class GameManager : MonoBehaviour
     private int baseMultiplier = 1;
 
     public static GameManager gm;
+
+    private MultiSpawner[] blockerSpawnerScripts;
 
     private GameObject levelPrompt;
     private Text levelPromptText;
@@ -72,7 +75,7 @@ public class GameManager : MonoBehaviour
     {
         currentState = GameState.Setup;
 
-        roundTimer = setRoundTimer;
+        roundTimer = setFirstRoundTimer;
 
         breakTimer = 0;
 
@@ -106,6 +109,8 @@ public class GameManager : MonoBehaviour
         bossDropSystem = GetComponent<BossDropSystem>();
 
         transitionController = Camera.main.GetComponent<TransitionController>();
+
+        blockerSpawnerScripts = blockerSpawners.GetComponentsInChildren<MultiSpawner>();
     }
 
     // Update is called once per frame
@@ -333,6 +338,11 @@ public class GameManager : MonoBehaviour
         enemySpawnerPicker();
         blockerSpawners.SetActive(true);
 
+        foreach (MultiSpawner blockerSpawnerScript in blockerSpawnerScripts)
+        {
+            blockerSpawnerScript.resetSpawn();
+        }
+
         coroutineStarted = false;
     }
 
@@ -419,11 +429,6 @@ public class GameManager : MonoBehaviour
 
     public void StartPrompt(string promptType)
     {
-        if (levelPrompt.activeSelf)
-        {
-            return;
-        }
-
         if (promptType == "Damage")
         {
             StartCoroutine(ShowPrompt(damageUpPrompt));

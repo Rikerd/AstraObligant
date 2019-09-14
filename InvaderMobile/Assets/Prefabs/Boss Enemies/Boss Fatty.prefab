@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 427a29ea9a33d3c4eb27a2b81df66851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 80
+  maxHP: 70
   damage: 100
   scoreValue: 200
   scorePrompt: {fileID: 3068286878566692857, guid: 30382c747f9aa2d4295543afd8bbcd2a,

@@ -15,6 +15,8 @@ public class ShipMovement : MonoBehaviour
 
     private Vector2 movement;
 
+    private float multiplier;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,24 +45,34 @@ public class ShipMovement : MonoBehaviour
         }
         #endregion Keyboard Controls
 
+        multiplier = tilt.x * 2f;
+
+        if (multiplier > 1)
+        {
+            multiplier = 1;
+        } else if (multiplier < -1)
+        {
+            multiplier = -1;
+        }
+
         if (moveRightCheck(tilt.x))
         {
-            rb2d.MovePosition(rb2d.position + movement * Time.fixedDeltaTime);
+            rb2d.MovePosition(rb2d.position + (movement * multiplier) * Time.fixedDeltaTime);
             // transform.Translate(movement * Time.fixedDeltaTime);
         } else if (moveLeftCheck(tilt.x))
         {
-            rb2d.MovePosition(rb2d.position - movement * Time.fixedDeltaTime);
+            rb2d.MovePosition(rb2d.position + (movement * multiplier) * Time.fixedDeltaTime);
             //transform.Translate(new Vector3(-movementSpeed, 0, 0) * Time.fixedDeltaTime);
         }
     }
 
     private bool moveRightCheck(float direction)
     {
-        return (direction >= tiltLimit && (rb2d.position + movement * Time.fixedDeltaTime).x <= max.x - 0.28f);
+        return (direction >= tiltLimit && (rb2d.position + (movement * multiplier) * Time.fixedDeltaTime).x <= max.x - 0.28f);
     }
 
     private bool moveLeftCheck(float direction)
     {
-        return (direction <= -tiltLimit && (rb2d.position - movement * Time.fixedDeltaTime).x >= min.x + 0.28f);
+        return (direction <= -tiltLimit && (rb2d.position + (movement * multiplier) * Time.fixedDeltaTime).x >= min.x + 0.28f);
     }
 }

@@ -164,8 +164,8 @@ MonoBehaviour:
     type: 3}
   audioSource: {fileID: 3225352197243599802, guid: 785b5688409383e44b8f197385175dd3,
     type: 3}
-  patrolSpeed: 1
-  bulletSpeed: 1.5
+  patrolSpeed: 1.2
+  bulletSpeed: 1.9
   setDownwardTimer: 1
   minInitialMovementTimer: 0.7
   maxInitialMovementTimer: 0.7

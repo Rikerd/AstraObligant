@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1c674fabc1da8488ece00179e567a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 200
+  maxHP: 125
   damage: 10
   scoreValue: 200
   scorePrompt: {fileID: 3068286878566692857, guid: 30382c747f9aa2d4295543afd8bbcd2a,
@@ -161,7 +161,7 @@ MonoBehaviour:
   fowardMovement: 0.5
   babyShip: {fileID: 7583649910215294611, guid: db6a44694d4371f40bc30d59771ded4c,
     type: 3}
-  setBabySpawnTimer: 2.5
+  setBabySpawnTimer: 2.2
 --- !u!114 &6208815737952159124
 MonoBehaviour:
   m_ObjectHideFlags: 0
