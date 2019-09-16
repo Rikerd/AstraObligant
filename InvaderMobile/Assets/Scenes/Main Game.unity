@@ -3725,8 +3725,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
-  setFirstRoundTimer: 30
-  setRoundTimer: 45
+  setFirstRoundTimer: 1
+  setRoundTimer: 1
   setBreakTimer: 3
   normalEnemySpawners:
   - {fileID: 1423813774}
@@ -3866,7 +3866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e65c7f869da93e4bb45cb56d8b2d6cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropRates: 64000000640000003c0000002d0000001400000005000000
+  dropRates: 64000000640000003c0000002d000000140000000f000000
   pickUps:
   - {fileID: 6162063003678628697, guid: b2a9652daeb04994ba50eccc19792a4e, type: 3}
   - {fileID: 6162063003678628697, guid: b2a9652daeb04994ba50eccc19792a4e, type: 3}

@@ -407,7 +407,7 @@ public class GameManager : MonoBehaviour
         {
             bossDropSystem.ChooseDrop();
             bossDropSystem.Drop(Vector3.zero);
-        } 
+        }
         else if (!dropped)
         {
             int rand = Random.Range(0, 100);
@@ -419,6 +419,11 @@ public class GameManager : MonoBehaviour
                 bossDropSystem.ChooseDrop();
                 bossDropSystem.Drop(Vector3.zero);
             }
+        }
+        else if (currentLevel % 5 == 0 && dropped)
+        {
+            dropped = false;
+            bossDropSystem.DefaultDrop(Vector3.zero);
         }
         else
         {

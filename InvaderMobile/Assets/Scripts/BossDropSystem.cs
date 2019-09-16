@@ -41,6 +41,11 @@ public class BossDropSystem : MonoBehaviour
         {
             if (!droppedList[i])
             {
+                if (i == 5 && GameManager.gm.currentLevel <= 15)
+                {
+                    continue;
+                }
+
                 total += dropRates[i];
                 
                 unusedPickUps.Add(pickUps[i]);
@@ -56,11 +61,16 @@ public class BossDropSystem : MonoBehaviour
                 continue;
             }
 
+            if (i == 5 && GameManager.gm.currentLevel <= 15)
+            {
+                continue;
+            }
+
             if (randDropNumber <= dropRates[i])
             {
                 dropItem = unusedPickUps[i];
 
-                if (i < 3)
+                if (i == 0 || i == 1 || i == 5)
                 {
                     droppedList[i] = true;
                 }
