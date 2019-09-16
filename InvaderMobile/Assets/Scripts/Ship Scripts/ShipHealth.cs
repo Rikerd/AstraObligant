@@ -100,9 +100,9 @@ public class ShipHealth : PlayerDamageable
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            //TakeDamage(1);
+            TakeDamage(1);
             //IncreaseMaxHp();
-            ShootController.shootController.ActivateTripleShot();
+            //ShootController.shootController.ActivateTripleShot();
         }
 
         if (invincible)
@@ -257,6 +257,11 @@ public class ShipHealth : PlayerDamageable
     public bool isPlayerDead()
     {
         return (currentHP <= 0);
+    }
+
+    public bool getInvincibleStatus()
+    {
+        return invincible;
     }
 
     private void DisablePlayer()

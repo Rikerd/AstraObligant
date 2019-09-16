@@ -123,11 +123,27 @@ public class Fatty : Enemy
     {
         if (collision.tag == "Player")
         {
-            collision.GetComponent<PlayerDamageable>().TakeDamage(damage);
+            if (isBoss)
+            {
+                ShipHealth playerHp = collision.GetComponent<ShipHealth>();
 
-            spawnParticle();
+                if (!playerHp.getInvincibleStatus())
+                {
+                    collision.GetComponent<PlayerDamageable>().TakeDamage(damage);
 
-            Destroy(gameObject);
+                    spawnParticle();
+
+                    Destroy(gameObject);
+                }
+            }
+            else
+            {
+                collision.GetComponent<PlayerDamageable>().TakeDamage(damage);
+
+                spawnParticle();
+
+                Destroy(gameObject);
+            }
         }
     }
 
