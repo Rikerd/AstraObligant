@@ -14,8 +14,7 @@ public class GameManager : MonoBehaviour
 
     public int currentLevel = 0;
 
-    public float setFirstRoundTimer = 30f;
-    public float setRoundTimer = 300f;
+    public float[] setRoundTimers;
 
     public float setBreakTimer = 10f;
 
@@ -74,8 +73,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         currentState = GameState.Setup;
-
-        roundTimer = setFirstRoundTimer;
 
         breakTimer = 0;
 
@@ -333,7 +330,15 @@ public class GameManager : MonoBehaviour
         levelPrompt.SetActive(false);
 
 
-        roundTimer = setRoundTimer;
+        if (currentLevel >= 5)
+        {
+            roundTimer = setRoundTimers[4];
+        }
+        else
+        {
+            roundTimer = setRoundTimers[currentLevel - 1];
+        }
+
         currentState = GameState.Round;
         enemySpawnerPicker();
         blockerSpawners.SetActive(true);
