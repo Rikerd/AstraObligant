@@ -1149,7 +1149,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 486, y: -99.84001}
+  m_AnchoredPosition: {x: 486, y: -99.840004}
   m_SizeDelta: {x: 972, y: 199.68001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &391446347
@@ -2483,6 +2483,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Menu Asteroid Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015444252635967119, guid: 1938eba5446b0554b99336ecff68fbab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2895556076711167380, guid: 1938eba5446b0554b99336ecff68fbab,
         type: 3}

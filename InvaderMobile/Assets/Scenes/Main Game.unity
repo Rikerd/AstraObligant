@@ -3731,7 +3731,6 @@ MonoBehaviour:
   - 35
   - 40
   - 45
-  roundTimerChecker: 0
   setBreakTimer: 3
   normalEnemySpawners:
   - {fileID: 1423813774}
