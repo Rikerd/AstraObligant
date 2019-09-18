@@ -98,13 +98,6 @@ public class ShipHealth : PlayerDamageable
     {
         // Recharge();
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            TakeDamage(1);
-            //IncreaseMaxHp();
-            //ShootController.shootController.ActivateTripleShot();
-        }
-
         if (invincible)
         {
             invincibleTimer -= Time.deltaTime;
