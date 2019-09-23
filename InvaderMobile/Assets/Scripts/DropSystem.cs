@@ -22,7 +22,7 @@ public class DropSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Random.Range(0f, 100f) <= dropPercentage)
+        if (Random.Range(1f, 100f) <= dropPercentage)
         {
             isDrop = true;
         }
