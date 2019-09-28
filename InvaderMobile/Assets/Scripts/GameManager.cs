@@ -479,4 +479,9 @@ public class GameManager : MonoBehaviour
             return multiplier;
         }
     }
+
+    public void DisableSpawners()
+    {
+        clearBasicEnemySpawners();
+    }
 }

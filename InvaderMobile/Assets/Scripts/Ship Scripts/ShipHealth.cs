@@ -23,6 +23,7 @@ public class ShipHealth : PlayerDamageable
     public GameObject gameOverPrompt;
     public GameObject uiBar;
     public Text gameOverScoreText;
+    public Text gameOverLevelText;
     
     private HpBar hpUIController;
 
@@ -156,7 +157,21 @@ public class ShipHealth : PlayerDamageable
             highScoreTracker.SaveScore();
             gameOverPrompt.SetActive(true);
             gameOverScoreText.text = highScoreTracker.getScoreText();
+
+            string result = "";
+            int length = GameManager.gm.currentLevel.ToString().Length;
+
+            for (int i = length; i < 2; i++)
+            {
+                result += "0";
+            }
+
+            result += GameManager.gm.currentLevel;
+
+            gameOverLevelText.text = "- LEVEL " + result + " -";
+
             uiBar.SetActive(false);
+            GameManager.gm.DisableSpawners();
             DisablePlayer();
         }
         else
